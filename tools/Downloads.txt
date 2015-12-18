@@ -1,0 +1,64 @@
+ File: Downloads.txt
+File which shows a lot of download options for pimagizer 0.4.1
+
+            ***** pimagizer version 0.4.1 *****
+
+Pimagizer Copyright 2014 Víctor Fernández Rico <vfrico@gmail.com>
+===========================================================================
+Pimagizer is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pimagizer is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+===========================================================================
+Updated info available on <http://cambiadeso.es/proyectos/pimagizer/>
+
+
+
+* Debian installer file (.deb)
+-------------------------------------
+INSTRUCTIONS for debian and derivatives: Download, place terminal on download folder and run:
+
+    $ dpkg -i pimagizer_0.4.1-1_all.deb 
+
+=> .deb file: https://launchpad.net/pimagizer/trunk/0.4/+download/pimagizer_0.4.1-1_all.deb
+
+
+* Python sources
+-------------------------------------
+INSTRUCTIONS for all linux distributions: Download, unzip all files and place terminal 
+    on pimagizer folder (you'll found a setup.py file). Then run:
+
+    $ sudo python setup.py install
+
+=> .tar.gz file: https://launchpad.net/pimagizer/trunk/0.4/+download/pimagizer-0.4.1.tar.gz
+
+NOTE: For Arch distributions, yo'll need to use python2 command.
+Dependencies: "python-pillow" (aka: "python-imaging") and "pygobject"
+
+* Fedora installation files
+-------------------------------------
+You can download either .src.rpm packages or the most common package .rpm:
+
+=> .rpm file: https://launchpad.net/pimagizer/trunk/0.4/+download/pimagizer-0.4.1-1.noarch.rpm
+=> .src.rpm file: https://launchpad.net/pimagizer/trunk/0.4/+download/pimagizer-0.4.1-1.src.rpm
+
+* ArchLinux installation instructions
+-------------------------------------
+INSTRUCTIONS for Arch and derivatives:Arch package is available on AUR (Arch User Repository),
+    installable by following command:
+    
+    $ yaourt -S pimagizer
+
+Anyway, you can download this file and run on consoloe this command to install it:
+
+    $ sudo pacman -U pimagizer-0.4.1-2-any.pkg.tar.xz
+    
+=> Arch file: https://launchpad.net/pimagizer/trunk/0.4/+download/pimagizer-0.4.1-2-any.pkg.tar.xz

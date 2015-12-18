@@ -1,0 +1,78 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from gi.repository import Gtk,Gdk,GObject,GLib
+import time, os , sys, shutil
+import gettext
+
+if os.path.abspath(__file__).startswith('/opt'):
+    sys.path.insert(0, '/opt/extras.ubuntu.com/pimagizer') 
+elif os.path.abspath(__file__).startswith('/usr'):
+    sys.path.insert(0, '/usr/share/pimagizer')
+    
+from pimagizer import gtkpimagizer
+import getopt #for parse args
+
+# For translations:
+APP="pimagizer"
+DIR="/usr/share/pimagizer/i18n"
+# Esto permite traducir los textos escritos en el .py (no en glade)
+gettext.textdomain(APP)
+gettext.bindtextdomain(APP, DIR)
+# Y las siguientes 2 lineas permiten traducir los textos del Glade
+#~ gtk.glade.textdomain(APP)
+#~ gtk.glade.bindtextdomain(APP, DIR)
+# Y con esto podemos marcar las cadenas a traducir de la forma _("cadena")
+_ = gettext.gettext
+# End translations
+
+def main(argv):
+    try:
+        opt, args = getopt.getopt(argv, "he:dp:", ["help", "execute=", "dothis", "print="])
+        print "Opt (Options?): "+str(opt)
+        print "Args (Argumentos?): "+str(args)
+    except getopt.GetoptError, err:
+        print str(err)
+        usage()
+        sys.exit(2)
+    output = None
+    verbose = False
+    for o, a in opt:
+        if o in ("-h", "--help"):
+            usage()
+            sys.exit()
+        elif o in ("-d", "--dothis"):
+            print "dothis"
+            sys.exit()
+        elif o in ("-p", "--print"):
+            print str(a)
+            sys.exit()
+        else:
+            assert False, "Unhandled option"
+    home = os.path.expanduser("~")
+    if not os.path.exists(home+"/.config/pimagizer/conf.db"):
+        print "No existe"
+        from pimagizer import config
+        config.createbase()
+    else:
+        from pimagizer import config
+        config.try_value("newname",1)
+        config.try_value("defaultpx",1)
+        print "Exists"
+    if opt == []:
+        pimagizer = gtkpimagizer.Pimagizer(args) 
+def usage():
+    usage = """
+    -h --help                 Prints this
+    -d --dothis               Print dothis
+    -p --print (argument)     Print (argument)
+    """
+    print usage
+
+if __name__ == "__main__":
+    main(sys.argv[1:]) # [1:] => Quita el primer argumento ya que es el nombre del programa
+    GLib.threads_init()
+    Gdk.threads_init()
+    Gdk.threads_enter()
+    Gtk.main()
+    Gdk.threads_leave()
+    GObject.threads_init()

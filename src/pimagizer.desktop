@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Pimagizer
+Icon=pimagizer
+Comment=Resize images using Python
+Comment[es]=Redimensione imágenes usando python
+Exec=/usr/bin/pimagizer %F
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Utility;
+StartupNotify=False
+MimeType=image/jpeg;image/png;

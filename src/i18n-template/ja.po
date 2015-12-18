@@ -1,0 +1,230 @@
+# Japanese translation for pimagizer
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the pimagizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-09 12:23+0100\n"
+"PO-Revision-Date: 2014-08-14 10:12+0000\n"
+"Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
+"Language-Team: Japanese <ja@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-04-02 05:43+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
+
+#: ../pimagizer/gtkpimagizer.py:119
+msgid "Image files"
+msgstr "画像ファイル"
+
+#: ../pimagizer/gtkpimagizer.py:246
+msgid ""
+"If you <b>turn off</b> this option, you will \n"
+"<b>overwrite</b> all you save with Pimagizer"
+msgstr ""
+"このオプションを <b>オフ</b> にすると\n"
+"保存で <b>上書き</b> されます"
+
+#: ../pimagizer/gtkpimagizer.py:420
+msgid "Saving preferences data"
+msgstr "設定を保存"
+
+#: ../pimagizer/gtkpimagizer.py:427
+msgid "Closing program"
+msgstr "プログラム終了"
+
+#: ../pimagizer/gtkpimagizer.py:431
+msgid "About"
+msgstr "情報"
+
+#: ../pimagizer/gtkpimagizer.py:439
+msgid "Close about dialog"
+msgstr "ダイアログを閉じる"
+
+#: ../pimagizer/gtkpimagizer.py:476
+#, python-format
+msgid "Bundle of %d images saved"
+msgstr "%d の画像を保存しました"
+
+#: ../pimagizer/gtkpimagizer.py:485
+msgid "You have not selected any file"
+msgstr "ファイルが選択されていません"
+
+#: ../pimagizer/gtkpimagizer.py:527
+msgid "Image saved"
+msgstr "画像を保存"
+
+#: ../pimagizer/gtkpimagizer.py:667 ../pimagizer/gtkpimagizer.py:668
+msgid "Error"
+msgstr "エラー"
+
+#: ../pimagizer/gtkpimagizer.py:671
+msgid "Click here to update preview"
+msgstr "クリックでプレビューを更新"
+
+#: ../pimagizer/gtkpimagizer.py:675
+msgid "The images you selected have different sizes"
+msgstr "この画像はサイズが違います"
+
+#: ../pimagizer/gtkpimagizer.py:709 ../pimagizer/gtkpimagizer.py:710
+msgid "file.png"
+msgstr "file.png"
+
+#: ../pimagizer/gtkpimagizer.py:766
+msgid "Pimagizer preferences"
+msgstr "Pimagizerの設定"
+
+#: ../pimagizer/gtkpimagizer.py:797
+msgid "Saving under new name"
+msgstr "別の名前で保存"
+
+#: ../pimagizer/gtkpimagizer.py:799
+msgid "You are <b>overwritting</b> the image file"
+msgstr "画像ファイルを <b>上書き</b> します"
+
+#: ../pimagizer/gtkpimagizer.py:851
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+"画像をパーセント (%)を使って\n"
+"縮小します"
+
+#: ../pimagizer/gtkpimagizer.py:854 ../src/pimagizer.glade.h:28
+msgid "Help? Click"
+msgstr "ヘルプ? クリックしてください"
+
+#: ../pimagizer/getimage.py:49
+msgid "Images"
+msgstr "画像"
+
+#: ../src/pimagizer.glade.h:1
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr "Pimagizer は画像をリサイズするプログラムです。PNG と JPG をサポートしています。"
+
+#: ../src/pimagizer.glade.h:2
+msgid ""
+"Here you can set the size of the \n"
+"image preview on main window"
+msgstr ""
+"ここで画像をプレビューする\n"
+"ウィンドウのサイズをセットします"
+
+#: ../src/pimagizer.glade.h:4
+msgid "Height"
+msgstr "高さ"
+
+#: ../src/pimagizer.glade.h:5
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+"推奨する値は\n"
+"300px付近です"
+
+#: ../src/pimagizer.glade.h:7
+msgid "Size of preview"
+msgstr "プレビューのサイズ"
+
+#: ../src/pimagizer.glade.h:8
+msgid "Information"
+msgstr "情報"
+
+#: ../src/pimagizer.glade.h:9
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+"image(幅x高さ).jpg の形式の\n"
+"別の名前でファイルを保存しますか?"
+
+#: ../src/pimagizer.glade.h:11
+msgid "Save images with new name"
+msgstr "名前をつけて保存"
+
+#: ../src/pimagizer.glade.h:12
+msgid "Saving options"
+msgstr "保存オプション"
+
+#: ../src/pimagizer.glade.h:13
+msgid "Saving"
+msgstr "保存"
+
+#: ../src/pimagizer.glade.h:14
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr "Pimagizerは PNG と JPG が使えます。"
+
+#: ../src/pimagizer.glade.h:15
+msgid "Works with"
+msgstr "動作"
+
+#: ../src/pimagizer.glade.h:16
+msgid "Translate"
+msgstr "翻訳"
+
+#: ../src/pimagizer.glade.h:17
+msgid "Bugs"
+msgstr "バグ"
+
+#: ../src/pimagizer.glade.h:18
+msgid "Questions"
+msgstr "質問"
+
+#: ../src/pimagizer.glade.h:19
+msgid "Launchpad"
+msgstr "Launchpad"
+
+#: ../src/pimagizer.glade.h:20
+msgid "Interface"
+msgstr "インタフェース"
+
+#: ../src/pimagizer.glade.h:21
+msgid "Pimagizer"
+msgstr "Pimagizer"
+
+#: ../src/pimagizer.glade.h:22
+msgid "Click on image to change"
+msgstr "クリックして画像を選択"
+
+#: ../src/pimagizer.glade.h:23
+msgid "Size:"
+msgstr "サイズ:"
+
+#: ../src/pimagizer.glade.h:24
+msgid "Width"
+msgstr "幅"
+
+#: ../src/pimagizer.glade.h:25
+msgid "Proportional"
+msgstr "比率を保持"
+
+#: ../src/pimagizer.glade.h:27
+msgid "Percentage (%)"
+msgstr "パーセント (%)"
+
+#: ../src/pimagizer.glade.h:29
+msgid "New size:"
+msgstr "新しいサイズ:"
+
+#: ../src/pimagizer.glade.h:30
+msgid "Ratio"
+msgstr "比率"
+
+#: ../src/pimagizer.glade.h:31
+msgid "Save: "
+msgstr "保存: "
+
+#: ../src/pimagizer.glade.h:32
+msgid "Select a folder"
+msgstr "フォルダーを選択"
+
+#: ../src/pimagizer.glade.h:33
+msgid "Select a file"
+msgstr "ファイルを選択"

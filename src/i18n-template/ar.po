@@ -1,0 +1,222 @@
+# Arabic translation for pimagizer
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the pimagizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-09 12:23+0100\n"
+"PO-Revision-Date: 2014-11-12 22:20+0000\n"
+"Last-Translator: Karim Oulad Chalha <Unknown>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-04-02 05:43+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
+
+#: ../pimagizer/gtkpimagizer.py:119
+msgid "Image files"
+msgstr "ملفات الصور"
+
+#: ../pimagizer/gtkpimagizer.py:246
+msgid ""
+"If you <b>turn off</b> this option, you will \n"
+"<b>overwrite</b> all you save with Pimagizer"
+msgstr ""
+"إذا قمت <b>بإقاف</b> هذا الخيار, سوف اقوم بـ \n"
+"<b>الكتابة فوق</b> كل ما تم حفظه بـ Pimagizer"
+
+#: ../pimagizer/gtkpimagizer.py:420
+msgid "Saving preferences data"
+msgstr "حفظ بيانات التفضيلات"
+
+#: ../pimagizer/gtkpimagizer.py:427
+msgid "Closing program"
+msgstr "يتم غلق البرنامج"
+
+#: ../pimagizer/gtkpimagizer.py:431
+msgid "About"
+msgstr "حول"
+
+#: ../pimagizer/gtkpimagizer.py:439
+msgid "Close about dialog"
+msgstr "غلق حوار حول"
+
+#: ../pimagizer/gtkpimagizer.py:476
+#, python-format
+msgid "Bundle of %d images saved"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:485
+msgid "You have not selected any file"
+msgstr "لم تقم بتجديد إي ملف"
+
+#: ../pimagizer/gtkpimagizer.py:527
+msgid "Image saved"
+msgstr "تم حفظ الصورة"
+
+#: ../pimagizer/gtkpimagizer.py:667 ../pimagizer/gtkpimagizer.py:668
+msgid "Error"
+msgstr "خطأ"
+
+#: ../pimagizer/gtkpimagizer.py:671
+msgid "Click here to update preview"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:675
+msgid "The images you selected have different sizes"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:709 ../pimagizer/gtkpimagizer.py:710
+msgid "file.png"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:766
+msgid "Pimagizer preferences"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:797
+msgid "Saving under new name"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:799
+msgid "You are <b>overwritting</b> the image file"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:851
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:854 ../src/pimagizer.glade.h:28
+msgid "Help? Click"
+msgstr ""
+
+#: ../pimagizer/getimage.py:49
+msgid "Images"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:1
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr ""
+
+#: ../src/pimagizer.glade.h:2
+msgid ""
+"Here you can set the size of the \n"
+"image preview on main window"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:4
+msgid "Height"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:5
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:7
+msgid "Size of preview"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:8
+msgid "Information"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:9
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:11
+msgid "Save images with new name"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:12
+msgid "Saving options"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:13
+msgid "Saving"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:14
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr ""
+
+#: ../src/pimagizer.glade.h:15
+msgid "Works with"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:16
+msgid "Translate"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:17
+msgid "Bugs"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:18
+msgid "Questions"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:19
+msgid "Launchpad"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:20
+msgid "Interface"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:21
+msgid "Pimagizer"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:22
+msgid "Click on image to change"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:23
+msgid "Size:"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:24
+msgid "Width"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:25
+msgid "Proportional"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:27
+msgid "Percentage (%)"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:29
+msgid "New size:"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:30
+msgid "Ratio"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:31
+msgid "Save: "
+msgstr ""
+
+#: ../src/pimagizer.glade.h:32
+msgid "Select a folder"
+msgstr ""
+
+#: ../src/pimagizer.glade.h:33
+msgid "Select a file"
+msgstr ""

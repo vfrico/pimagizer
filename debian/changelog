@@ -1,0 +1,237 @@
+pimagizer (0.4.3-1) trusty; urgency=medium
+
+  * New python classes
+
+ -- Víctor Fernández Rico <vfrico@gmail.com>  Wed, 2 Apr 2015 00:8:24 +0200
+
+pimagizer (0.4.2-1) trusty; urgency=medium
+
+  * Cleaning code
+  * Adding some translations
+
+ -- Víctor Fernández Rico <vfrico@gmail.com>  Wed, 04 Jun 2014 20:14:04 +0200
+
+pimagizer (0.4.1-1) saucy; urgency=low
+
+  * Some bugs solved.
+
+ -- Víctor Fernández Rico <vfrico@gmail.com>  Fri, 31 Jan 2014 20:07:57 +0100
+
+pimagizer (0.4-1) saucy; urgency=low
+
+  * GTK UI improvements for versions prior to GTK+ 3.10.
+
+ -- Víctor Fernández Rico <vfrico@gmail.com>  Fri, 31 Jan 2014 14:44:48 +0100
+
+pimagizer (0.3.9b-1) saucy; urgency=low
+
+  * Modifying config.py
+
+ -- Víctor Fernández Rico <vfrico@gmail.com>  Thu, 30 Jan 2014 23:56:10 +0100
+
+pimagizer (0.3.9b-0) quantal; urgency=low
+
+  * Adding support for GTK 3.10 HeaderBar
+  * Some UI improvements
+
+ -- Víctor Fernández Rico <vfrico@gmail.com>  Sun, 16 Jun 2013 21:29:46 +0200
+
+pimagizer (0.3RC-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Víctor Fernández <vfrico@gmail.com>  Wed, 12 Jun 2013 18:51:57 +0200
+
+pimagizer (0.2.12b-1) quantal; urgency=low
+
+  * Fixing bugs
+  * Adding multilingual support for image preview
+  * Changing font to neucha for cyrilic support
+  * Fixing last empty row on mosaic
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 26 May 2013 17:10:05 +0200
+
+pimagizer (0.2.11b-1) quantal; urgency=low
+
+  * Fixing bug when resizing a bundle
+
+ -- Víctor Fernández <vfrico@gmail.com>  Fri, 24 May 2013 22:02:20 +0200
+
+pimagizer (0.2.10a) quantal; urgency=low
+
+  * Adding multithread for IU interaction
+  * Changing axis for preview image
+  * Allowing translations for text on image
+  * Centering text on images
+  * Translations updated
+
+ -- Víctor Fernández <vfrico@gmail.com>  Fri, 24 May 2013 21:37:51 +0200
+
+pimagizer (0.2.9a) quantal; urgency=low
+
+  * Adding button for load preview
+
+ -- Víctor Fernández <vfrico@gmail.com>  Fri, 24 May 2013 19:34:32 +0200
+
+pimagizer (0.2.8a) quantal; urgency=low
+
+  * Cleaning code
+
+ -- Víctor Fernández <vfrico@gmail.com>  Wed, 22 May 2013 18:43:15 +0200
+
+pimagizer (0.2.7b) quantal; urgency=low
+
+  * Adding Mosaic preview for same bundle images
+  * Changing preview image for irregular bundles
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 17 Apr 2013 22:09:49 +0200
+
+pimagizer (0.2.6b) quantal; urgency=low
+
+  * Updating Russian translations
+  * Adding Mimetipes selection
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 17 Apr 2013 18:05:46 +0200
+
+pimagizer (0.2.5b) quantal; urgency=low
+
+  * Making UI improvements
+  * Fixing some bugs
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 15 Apr 2013 19:06:29 +0200
+
+pimagizer (0.4a) quantal; urgency=low
+
+  * Adding support for a bundle of images
+  * Fixing some bugs
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 14 Apr 2013 23:10:37 +0200
+
+pimagizer (0.2.2-1) quantal; urgency=low
+
+  * New Translation
+  * New Debian building
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 07 Apr 2013 16:25:24 +0200
+
+pimagizer (0.2.1-1) quantal; urgency=low
+
+  * Fixed bug #116558
+  * New debian building
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 07 Apr 2013 16:13:32 +0200
+
+pimagizer (0.2-1) squeeze; urgency=low
+
+  [ Víctor Fernández Rico ]
+  * New Debian Building.
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sat, 06 Apr 2013 00:17:29 +0200
+
+pimagizer (0.2-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Víctor Fernández <vfrico@gmail.com>  Fri, 05 Apr 2013 00:09:11 +0200
+
+pimagizer (0.2ubuntu2) UNRELEASED; urgency=low
+
+  * Fixing problems with absolute paths
+  * Fixing translations
+  * Fixing choosing folder and some translations
+  * Problem with imputs when selecting a image
+  * Fixing when opening with image: default folder
+
+ -- Víctor Fernández <vfrico@gmail.com>  Thu, 28 Feb 2013 21:33:45 +0100
+
+pimagizer (0.1.99) quantal; urgency=low
+
+  * Open a window to change saving preferences
+  * Remove message to click if you have load an image
+  * Some changes to interface
+  * Changes in translators (about window)
+
+ -- Víctor Fernández <vfrico@gmail.com>  Wed, 13 Feb 2013 18:48:25 +0100
+
+pimagizer (0.1.15ubuntu1) quantal; urgency=low
+
+  * Changing signal for input fields (height,width)
+
+ -- Víctor Fernández <vfrico@gmail.com>  Wed, 13 Feb 2013 18:44:58 +0100
+
+pimagizer (0.1.14ubuntu1) Quantal; urgency=low
+
+  * Adding posibility to overwrite the image file
+  * Adding language support (fr,ru,zh_CN)
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 11 Feb 2013 19:25:21 +0100
+
+pimagizer (0.1.12) oneiric; urgency=low
+
+  * Fixed error in desktop file
+
+ -- Víctor Fernández <vfrico@gmail.com>  Tue, 08 May 2012 17:59:31 +0200
+
+pimagizer (0.1.11) oneiric; urgency=low
+
+  * Better way to adjust resolution
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 07 May 2012 23:33:07 +0200
+
+pimagizer (0.1.10) oneiric; urgency=low
+
+  * Fixed bug on init
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 07 May 2012 23:18:02 +0200
+
+pimagizer (0.1.9) oneiric; urgency=low
+
+  * Fixed bug: Doesn't create database at first startup
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 26 Mar 2012 19:31:46 +0200
+
+pimagizer (0.1.8) oneiric; urgency=low
+
+  * Setting better support for translations
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 18 Mar 2012 13:48:17 +0100
+
+pimagizer (0.1.7) oneiric; urgency=low
+
+  * Spinbutton added
+  * Config database
+  * Setting size of preview
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 18 Mar 2012 13:22:58 +0100
+
+pimagizer (0.1.6) oneiric; urgency=low
+
+  * More things on Preferences window
+  * Button "Acept" changed by "save"
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sat, 17 Mar 2012 14:21:49 +0100
+
+pimagizer (0.1.5) oneiric; urgency=low
+
+  * Show numbers without decimals
+
+ -- Víctor Fernández <vfrico@gmail.com>  Tue, 13 Mar 2012 17:50:19 +0100
+
+pimagizer (0.1.4) oneiric; urgency=low
+
+  * Adding translation support
+  * Fixing init bugs
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 12 Mar 2012 18:51:46 +0100
+
+pimagizer (0.1.3) oneiric; urgency=low
+
+  * Preferences dialog added
+
+ -- Víctor Fernández <vfrico@gmail.com>  Mon, 12 Mar 2012 00:23:49 +0100
+
+pimagizer (0.1.2) oneric; urgency=low
+
+  * Initial release
+
+ -- Víctor Fernández <vfrico@gmail.com>  Sun, 11 Mar 2012 00:56:07 +0100

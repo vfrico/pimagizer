@@ -1,0 +1,228 @@
+# Chinese (Simplified) translation for pimagizer
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the pimagizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-09 12:23+0100\n"
+"PO-Revision-Date: 2013-08-05 14:54+0000\n"
+"Last-Translator: Wang Dianjin <Unknown>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-06-25 05:54+0000\n"
+"X-Generator: Launchpad (build 17065)\n"
+
+#: ../pimagizer/gtkpimagizer.py:119
+msgid "Image files"
+msgstr "图像文件"
+
+#: ../pimagizer/gtkpimagizer.py:246
+msgid ""
+"If you <b>turn off</b> this option, you will \n"
+"<b>overwrite</b> all you save with Pimagizer"
+msgstr ""
+"如果您<b>关闭</b>该选项，您将会 \n"
+"<b>覆盖</b>用Pimagizer保存的文件"
+
+#: ../pimagizer/gtkpimagizer.py:420
+msgid "Saving preferences data"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:427
+msgid "Closing program"
+msgstr "正在关闭程序"
+
+#: ../pimagizer/gtkpimagizer.py:431
+msgid "About"
+msgstr "关于"
+
+#: ../pimagizer/gtkpimagizer.py:439
+msgid "Close about dialog"
+msgstr "关闭关于对话框"
+
+#: ../pimagizer/gtkpimagizer.py:476
+#, python-format
+msgid "Bundle of %d images saved"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:485
+msgid "You have not selected any file"
+msgstr "您没有选中任何文件"
+
+#: ../pimagizer/gtkpimagizer.py:527
+msgid "Image saved"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:667 ../pimagizer/gtkpimagizer.py:668
+msgid "Error"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:671
+msgid "Click here to update preview"
+msgstr "点击此处更新预览"
+
+#: ../pimagizer/gtkpimagizer.py:675
+msgid "The images you selected have different sizes"
+msgstr "您选择的图像有不同尺寸"
+
+#: ../pimagizer/gtkpimagizer.py:709 ../pimagizer/gtkpimagizer.py:710
+msgid "file.png"
+msgstr "文件.png"
+
+#: ../pimagizer/gtkpimagizer.py:766
+msgid "Pimagizer preferences"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:797
+msgid "Saving under new name"
+msgstr "以新文件名保存"
+
+#: ../pimagizer/gtkpimagizer.py:799
+msgid "You are <b>overwritting</b> the image file"
+msgstr "您将<b>覆盖</b>图像文件"
+
+#: ../pimagizer/gtkpimagizer.py:851
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+
+#: ../pimagizer/gtkpimagizer.py:854 ../src/pimagizer.glade.h:28
+msgid "Help? Click"
+msgstr "帮助？点击"
+
+#: ../pimagizer/getimage.py:49
+msgid "Images"
+msgstr "图像"
+
+#: ../src/pimagizer.glade.h:1
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr "Pimagizer 是一款重设图像大小的程序。目前支持 PNG 和 JPG 格式。"
+
+#: ../src/pimagizer.glade.h:2
+msgid ""
+"Here you can set the size of the \n"
+"image preview on main window"
+msgstr ""
+"这里您可以设置主窗口 \n"
+"图像预览的大小"
+
+#: ../src/pimagizer.glade.h:4
+msgid "Height"
+msgstr "高度"
+
+#: ../src/pimagizer.glade.h:5
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+"推荐设为与 300px \n"
+"相近的一个值"
+
+#: ../src/pimagizer.glade.h:7
+msgid "Size of preview"
+msgstr "预览大小"
+
+#: ../src/pimagizer.glade.h:8
+msgid "Information"
+msgstr "信息"
+
+#: ../src/pimagizer.glade.h:9
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+"您要以 图像(宽度x高度).jpg 名称格式\n"
+"来保存新文件吗？"
+
+#: ../src/pimagizer.glade.h:11
+msgid "Save images with new name"
+msgstr "使用新名称保存图像"
+
+#: ../src/pimagizer.glade.h:12
+msgid "Saving options"
+msgstr "保存选项"
+
+#: ../src/pimagizer.glade.h:13
+msgid "Saving"
+msgstr "保存"
+
+#: ../src/pimagizer.glade.h:14
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr "Pimagizer 支持 PNG 和 JPG 格式。"
+
+#: ../src/pimagizer.glade.h:15
+msgid "Works with"
+msgstr "支持"
+
+#: ../src/pimagizer.glade.h:16
+msgid "Translate"
+msgstr "翻译"
+
+#: ../src/pimagizer.glade.h:17
+msgid "Bugs"
+msgstr "Bug"
+
+#: ../src/pimagizer.glade.h:18
+msgid "Questions"
+msgstr "问题"
+
+#: ../src/pimagizer.glade.h:19
+msgid "Launchpad"
+msgstr "Launchpad"
+
+#: ../src/pimagizer.glade.h:20
+msgid "Interface"
+msgstr "界面"
+
+#: ../src/pimagizer.glade.h:21
+msgid "Pimagizer"
+msgstr "Pimagizer"
+
+#: ../src/pimagizer.glade.h:22
+msgid "Click on image to change"
+msgstr "点击要更改的图像"
+
+#: ../src/pimagizer.glade.h:23
+msgid "Size:"
+msgstr "大小："
+
+#: ../src/pimagizer.glade.h:24
+msgid "Width"
+msgstr "宽度"
+
+#: ../src/pimagizer.glade.h:25
+msgid "Proportional"
+msgstr "按比例"
+
+#: ../src/pimagizer.glade.h:27
+msgid "Percentage (%)"
+msgstr "百分比(%)"
+
+#: ../src/pimagizer.glade.h:29
+msgid "New size:"
+msgstr "新大小："
+
+#: ../src/pimagizer.glade.h:30
+msgid "Ratio"
+msgstr "比例"
+
+#: ../src/pimagizer.glade.h:31
+msgid "Save: "
+msgstr "保存为： "
+
+#: ../src/pimagizer.glade.h:32
+msgid "Select a folder"
+msgstr "选择文件夹"
+
+#: ../src/pimagizer.glade.h:33
+msgid "Select a file"
+msgstr "选择文件"

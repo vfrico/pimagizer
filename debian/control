@@ -1,0 +1,18 @@
+Source: pimagizer
+Section: graphics
+Priority: extra
+Maintainer: Víctor Fernández Rico <vfrico@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), python (>=2.6.6)
+Standards-Version: 3.9.4
+Homepage: http://www.cambiadeso.es/proyectos/pimagizer
+
+
+Package: pimagizer
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
+	python-imaging,
+	gir1.2-gtk-3.0(>= 3.6)
+Description: Python image resizer.
+ Pimagizer is a program used for resize images at
+ the easiest way with a simple interface written
+ with Python and GTK+3.
