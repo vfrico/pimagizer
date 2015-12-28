@@ -28,45 +28,52 @@ _ = gettext.gettext
 def main(argv):
     try:
         opt, args = getopt.getopt(argv, "he:dp:", ["help", "execute=", "dothis", "print="])
-        print "Opt (Options?): "+str(opt)
-        print "Args (Argumentos?): "+str(args)
-    except getopt.GetoptError, err:
-        print str(err)
+        print("Opt (Options?): "+str(opt))
+        print("Args (Argumentos?): "+str(ags))
+    except getopt.GetoptError as err:
+        print(str(err))
         usage()
         sys.exit(2)
+
     output = None
     verbose = False
-    for o, a in opt:
-        if o in ("-h", "--help"):
+
+    for option, argument in opt:
+        if option in ("-h", "--help"):
             usage()
             sys.exit()
-        elif o in ("-d", "--dothis"):
-            print "dothis"
+        elif option in ("-d", "--dothis"):
+            print("dothis")
             sys.exit()
-        elif o in ("-p", "--print"):
-            print str(a)
+        elif option in ("-p", "--print"):
+            print (str(argument))
             sys.exit()
         else:
             assert False, "Unhandled option"
+
     home = os.path.expanduser("~")
+
     if not os.path.exists(home+"/.config/pimagizer/conf.db"):
-        print "No existe"
+        print("No existe")
         from pimagizer import config
         config.createbase()
     else:
         from pimagizer import config
         config.try_value("newname",1)
         config.try_value("defaultpx",1)
-        print "Exists"
+        print("Exists")
+
     if opt == []:
-        pimagizer = gtkpimagizer.Pimagizer(args) 
+        pimagizer = gtkpimagizer.Pimagizer(args)
+
+
 def usage():
     usage = """
     -h --help                 Prints this
     -d --dothis               Print dothis
     -p --print (argument)     Print (argument)
     """
-    print usage
+    print(usage)
 
 if __name__ == "__main__":
     main(sys.argv[1:]) # [1:] => Quita el primer argumento ya que es el nombre del programa

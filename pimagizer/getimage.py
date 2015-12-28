@@ -51,7 +51,7 @@ def getimage_num(numero):
     texto = texto.decode("utf8")
     # Support for non cyrilic or latin characters
     lang = None,None
-    for n in re.findall(ur'[\u4e00-\u9fff]+',texto):
+    for n in re.findall(u'[\u4e00-\u9fff]+',texto):
         lang = ("zh_CN","/usr/share/pimagizer/images_zh_CN.png")
         lang = ("zh_TW","/usr/share/pimagizer/images_zh_TW.png")
     try:
@@ -121,7 +121,7 @@ def getimage_2(bundle):
     a = filas
     filas = columnas
     columnas = a
-    print "Hay",filas,"filas y",columnas,"columnas" # for debugging
+    print("Hay",filas,"filas y",columnas,"columnas") # for debugging
     
     # Get the ratio, to get the width of the final image, based on any image of array.
     #    [In first position (0), always are an image

@@ -45,12 +45,12 @@ _ = gettext.gettext
 
 
 def request_preview(sp_widg, bndl):
-    print "starts"
-    print bndl
+    print("starts")
+    print(bndl)
 
-    print image
+    print(image)
 
-    print "finishes"
+    print("finishes")
     sp_widg.stop()
     return image
 
@@ -358,7 +358,7 @@ class Pimagizer:
         
         if imputfile == []:
             imputfile = [self.filename]
-        print "imputfile+ "+str(imputfile)
+        print("imputfile+ "+str(imputfile))
         self.updateUI(imputfile)
         
 
@@ -366,18 +366,18 @@ class Pimagizer:
             self.window1.connect("destroy", self.cerrarapp)
             
     def cerrarapp(self, widget):
-        print _("Saving preferences data")
+        print(_("Saving preferences data"))
         if self.g310support:
             if self.buttonPx.get_active():
                 config.set_value("defaultpx",1)
             else:
                 config.set_value("defaultpx",0)
 
-        print _("Closing program")
+        print(_("Closing program"))
         Gtk.main_quit()
     
     def showabout(self, widget):
-        print _("About")
+        print(_("About"))
         self.aboutwindow = self.builder.get_object("aboutdialog")
         self.aboutwindow.set_version(info.version)
         self.aboutwindow.set_comments(_(self.aboutwindow.get_comments()))
@@ -385,22 +385,22 @@ class Pimagizer:
         self.aboutwindow.hide()
         
     def closeabout(self, widget):
-        print _("Close about dialog")
+        print(_("Close about dialog"))
         self.aboutwindow.hide()
         
     def resizeimg(self, widget):
         """Saves the image"""
         if self.tipo != 0:
-            print "Working with a set of images"
+            print("Working with a set of images")
             #self.lblst.set_text("You have selected a set of images.\n We are working to \n support that. Thanks!")
             # Gets the values of width and height
             width = int(float(self.inputwidth.get_value_as_int()))
             height = int(float(self.inputheight.get_value_as_int()))
-            print width,height
+            print(width,height)
             # Set of image files: self.listbundle
             for img in self.listbundle:
                 img = os.path.abspath(img)
-                print "Opening image ",img
+                print("Opening image ",img)
                 # PIL open the image
                 image = Image.open(img)
                 if self.tipo == 2:
@@ -421,19 +421,19 @@ class Pimagizer:
                 savename = imgname+"("+str(width)+"x"+str(height)+")"+ext
                 # PIL saves the image
                 image.save(savename)
-                print "Saved image", savename
+                print("Saved image", savename)
                 #save_txt = _("Bundle of %d images saved") % len(self.listbundle) 
                 save_txt = _("Saved %d images") % len(self.listbundle) 
                 self.lblst.set_text(save_txt)
                 self.lblst.set_use_markup(True) 
             
         else:
-            print "Working with a single image"
+            print("Working with a single image")
             # Separamos el nombre de la imagen de su extensión parar reconocer el formato de la imagen
             imgfile, ext0 = os.path.splitext(self.filename)
             if (self.labelsave.get_text() == ""): #If press save button when there's no text on entry
                 errorMSG = _("You have not selected any file")
-                print errorMSG
+                print(errorMSG)
                 self.lblst.set_text(errorMSG)
                 return 1
                 
@@ -460,19 +460,19 @@ class Pimagizer:
             elif(ext == ".png" or ext == ".PNG"):
                 ext2 = "PNG"
             else:
-                print "No format supported, trying JPEG"
+                print("No format supported, trying JPEG")
                 ext2 = "JPEG"
         
             #Getting the final name desired by user
             if self.folderset()[0]: #Chosen folder
                 final = self.folderset()[1]+"/"+imgname #Final name of image
-                print final
+                print(final)
             else: # If filechooser not changed
                 final = os.path.dirname(os.path.abspath(self.filename))+"/"+imgname #Nombre final de la dirección de guardado
             # PIL saves the image
             image.save(final,ext2)
             #Final saving
-            print "Saved",final
+            print("Saved",final)
             # Puts some messages for user
             self.lblst.set_text(_("Image saved"))#+' «<i>'+imgname+'</i>'+'»')
             #self.lblst.set_use_markup(True) 
@@ -506,7 +506,7 @@ class Pimagizer:
     
     def changefile (self ,widget, *args):
         """Run dialog"""
-        print "Changefile"
+        print("Changefile")
         self.filech.set_title(_(self.filech.get_title()))
         self.filech.show()
         self.filech.run()
@@ -521,7 +521,7 @@ class Pimagizer:
             self.ratio = float(wid) / float(hei)
         except:
             self.ratio = 1
-        print self.ratio
+        print (self.ratio)
         
         if self.g310support:
             if self.buttonPr.get_active():
@@ -533,7 +533,7 @@ class Pimagizer:
                 percent = self.height1.get_value_as_int() * 0.01
             else:
                 percent = 1
-        print percent
+        print (percent)
         
         (wid,hei) = (int(wid * percent), int(hei * percent))
         self.lblresol.set_text(str(wid)+"x"+str(hei)) # Sets text on top label
@@ -544,7 +544,7 @@ class Pimagizer:
     def updateUI(self, files):
         """Makes all needed actions to get ui updated"""
         self.filename = files
-        print self.filename
+        print(self.filename)
         if self.g310support:
             self.buttonPx.set_sensitive(True)
         else:
@@ -553,7 +553,7 @@ class Pimagizer:
         self.builder.get_object("box11").show()
         
         if len(self.filename) == 1:
-            print "One image is selected"
+            print("One image is selected")
             self.tipo = 0
             # If only one image then catch the only image on list
             self.filename = self.filename[0]
@@ -570,7 +570,7 @@ class Pimagizer:
             self.update_sizeUI(width,height)
                        
         elif len(self.filename) > 1:
-            print "Several images selected"
+            print("Several images selected")
             
             # Set preview of a bundle
             #preview_file = getimage.get_correct_preview(self.filename)
@@ -614,7 +614,7 @@ class Pimagizer:
                 self.several = True     
                 self.listbundle = self.filename
         else:
-            print _("Error")
+            print (_("Error"))
             self.lblresol.set_text(_("Error"))
             
         if self.tipo == 1:
@@ -709,7 +709,7 @@ class Pimagizer:
     def showpreferences (self, widget):
         "Shows preferences window"
         value = self.nwnamefile()
-        print value
+        print(value)
         self.switch_newfilename.set_active(value)
         
         #Translate window title
@@ -730,8 +730,8 @@ class Pimagizer:
             valor = 1 #New file name
         else:
             valor = 0 #overwrite
-        print "Setting up value:",valor
-        config.set_value("newname",valor) 
+        print("Setting up value:",valor)
+        config.set_value("newname",valor)
         self.f_labelnwfl()
 
     def nwnamefile(self): #returns true if file name is image(WxH).png
@@ -765,7 +765,7 @@ class Pimagizer:
     def folderset(self):
         """Returns value of filechooser if selected folder"""
         #if True:#self.selected:
-        print "existe"
+        print("existe")
         return [True,self.btflsave.get_filename()]
         # else:
         #     print "no"
@@ -806,12 +806,12 @@ class Pimagizer:
     #########
     
     def on_init(self, widget):
-        print "New preview should load"
-        print "now!"
+        print("New preview should load")
+        print("now!")
         
     def update_img_callbk(self, img_retrieved):
         """Callback to update image when ready"""
-        print "call",img_retrieved
+        print("call",img_retrieved)
         
         # Uses callback arg for update the image
         self.wdgtimg.set_from_pixbuf(self.resizing(img_retrieved))

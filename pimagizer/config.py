@@ -4,7 +4,7 @@ confighome = os.path.expanduser("~")+"/.config/pimagizer/conf.db"
 if not os.path.exists(confighome):
     os.mkdir(os.path.expanduser("~")+"/.config/pimagizer/")
 def createbase():
-    print "Crear base"
+    print("Crear base")
     filebase = open(confighome,'w')
     filebase.close()
     conn = sqlite3.connect(confighome)
@@ -15,7 +15,7 @@ def createbase():
     c.execute("INSERT INTO config VALUES(NULL, 'newname', 1)")
     c.execute("INSERT INTO config VALUES(NULL, 'defaultpx', 1)")
     for row in c:
-        print row
+        print (row)
     conn.commit()
     c.close() 
 def get_value(indice):
@@ -48,7 +48,7 @@ def try_value(indice,value): #tries if exist indice on database. If exists: noth
         get_value(indice)
     except:
         new_value(indice,value)
-        print "value of",indice,":",get_value(indice)
+        print("value of",indice,":",get_value(indice))
     finally:
-        print "value",indice,"exists: ",get_value(indice)
+        print("value",indice,"exists: ",get_value(indice))
 
