@@ -22,6 +22,7 @@
 
 from gi.repository import Gtk, Gio, Gdk, GdkPixbuf, GObject
 from pimagizer import info
+from pimagizer import config
 from pimagizer import getimage
 from PIL import Image
 import math
@@ -29,7 +30,6 @@ import os
 import glob
 import locale
 import gettext
-import config
 import time
 import threading
 

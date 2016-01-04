@@ -29,7 +29,7 @@ def main(argv):
     try:
         opt, args = getopt.getopt(argv, "he:dp:", ["help", "execute=", "dothis", "print="])
         print("Opt (Options?): "+str(opt))
-        print("Args (Argumentos?): "+str(ags))
+        print("Args (Argumentos?): "+str(args))
     except getopt.GetoptError as err:
         print(str(err))
         usage()
