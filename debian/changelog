@@ -1,3 +1,9 @@
+pimagizer (0.4.3-2) xenial; urgency=medium
+
+  * Moving from Launchpad to GitHub. Requesting build and checking all
+
+ -- Víctor Fernández Rico <ferrvic@ideafix>  Sat, 10 Sep 2016 21:02:26 +0200
+
 pimagizer (0.4.3-1) trusty; urgency=medium
 
   * New python classes
