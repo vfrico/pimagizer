@@ -24,3 +24,5 @@ override_dh_gencontrol:
 	cp $(CURDIR)/src/pimagizer.svg ../pimagizer.svg
 	dpkg-distaddfile pimagizer.svg raw-meta-data -
 
+#binary:
+#	echo $(PWD)

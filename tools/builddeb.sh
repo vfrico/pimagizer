@@ -1,8 +1,8 @@
 #!/bin/bash
 #       File: builddeb.sh
-#       Script in bash which makes a lot easier the task of 
+#       Script in bash which makes a lot easier the task of
 #       building a deb package. Only works if version is given: A.B.C
-#       
+#
 #       This file is part of Pimagizer
 #       Pimagizer Copyright 2014 Víctor Fernández Rico <vfrico@gmail.com>
 #
@@ -27,5 +27,5 @@ v=${a: -12}
 version=${v:0:6}
 final=$name"_"$version"orig.tar.gz"
 mv dist/$a ../$final
-
+echo $final
 dpkg-buildpackage --force-sign
