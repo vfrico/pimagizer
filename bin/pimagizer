@@ -1,33 +1,38 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from gi.repository import Gtk,Gdk,GObject,GLib
-import time, os , sys, shutil
+from gi.repository import Gtk, Gdk, GObject, GLib
+import time
+import os
+import sys
+import shutil
 import gettext
+import getopt  # for parse args
 
 if os.path.abspath(__file__).startswith('/opt'):
-    sys.path.insert(0, '/opt/extras.ubuntu.com/pimagizer') 
+    sys.path.insert(0, '/opt/extras.ubuntu.com/pimagizer')
+    from pimagizer import gtkpimagizer
 elif os.path.abspath(__file__).startswith('/usr'):
     sys.path.insert(0, '/usr/share/pimagizer')
-    
-from pimagizer import gtkpimagizer
-import getopt #for parse args
+    from pimagizer import gtkpimagizer
 
 # For translations:
-APP="pimagizer"
-DIR="/usr/share/pimagizer/i18n"
+APP = "pimagizer"
+DIR = "/usr/share/pimagizer/i18n"
 # Esto permite traducir los textos escritos en el .py (no en glade)
 gettext.textdomain(APP)
 gettext.bindtextdomain(APP, DIR)
 # Y las siguientes 2 lineas permiten traducir los textos del Glade
-#~ gtk.glade.textdomain(APP)
-#~ gtk.glade.bindtextdomain(APP, DIR)
+# gtk.glade.textdomain(APP)
+# gtk.glade.bindtextdomain(APP, DIR)
 # Y con esto podemos marcar las cadenas a traducir de la forma _("cadena")
 _ = gettext.gettext
 # End translations
 
+
 def main(argv):
     try:
-        opt, args = getopt.getopt(argv, "he:dp:", ["help", "execute=", "dothis", "print="])
+        opt, args = getopt.getopt(argv, "he:dp:",
+                                  ["help", "execute=", "dothis", "print="])
         print("Opt (Options?): "+str(opt))
         print("Args (Argumentos?): "+str(args))
     except getopt.GetoptError as err:
@@ -46,7 +51,7 @@ def main(argv):
             print("dothis")
             sys.exit()
         elif option in ("-p", "--print"):
-            print (str(argument))
+            print(str(argument))
             sys.exit()
         else:
             assert False, "Unhandled option"
@@ -59,8 +64,8 @@ def main(argv):
         config.createbase()
     else:
         from pimagizer import config
-        config.try_value("newname",1)
-        config.try_value("defaultpx",1)
+        config.try_value("newname", 1)
+        config.try_value("defaultpx", 1)
         print("Exists")
 
     if opt == []:
@@ -76,7 +81,8 @@ def usage():
     print(usage)
 
 if __name__ == "__main__":
-    main(sys.argv[1:]) # [1:] => Quita el primer argumento ya que es el nombre del programa
+    # [1:] => Quita el primer argumento ya que es el nombre del programa
+    main(sys.argv[1:])
     GLib.threads_init()
     Gdk.threads_init()
     Gdk.threads_enter()

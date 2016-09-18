@@ -23,6 +23,7 @@
 from PIL import Image
 from pimagizer_single import PimagizerSingle
 
+
 class PimagizerBundle:
 
     def __init__(self):
@@ -30,26 +31,22 @@ class PimagizerBundle:
         self.has_same_ratio = False
         self.has_same_sizes = False
 
-
-    def get_image(self,index):
+    def get_image(self, index):
         try:
             return self.images[index]
         except IndexError:
-            print ("Error. Index not exists")
-
+            print("Error. Index not exists")
 
     def get_images(self):
         return self.images
 
-
     def get_type(self):
         if self.has_same_ratio and self.has_same_sizes:
-            return 1 #same ratio,same sizes
+            return 1  # same ratio,same sizes
         elif self.has_same_ratio and not self.has_same_sizes:
-            return 2 #Same ratio, distinct sizes
+            return 2  # Same ratio, distinct sizes
         else:
-            return 3 #Heterogeneus
-
+            return 3  # Heterogeneus
 
     def show_images(self):
         img_array = []
@@ -57,8 +54,7 @@ class PimagizerBundle:
             img_array.append(image.origin_path)
         return img_array
 
-
-    def put_image(self,imageURL):
+    def put_image(self, imageURL):
         new_image = PimagizerSingle()
         new_image.set_image(imageURL)
         self.images.append(new_image)
@@ -67,11 +63,9 @@ class PimagizerBundle:
         self.check_sizes()
         return True
 
-
-    def put_images(self,iterableImageURL):
+    def put_images(self, iterableImageURL):
         for imageURL in iterableImageURL:
             self.put_image(imageURL)
-
 
     def check_ratio(self):
         ratios = []
@@ -83,7 +77,6 @@ class PimagizerBundle:
         else:
             self.has_same_ratio = False
 
-
     def check_sizes(self):
         sizes = []
         for image in self.images:
@@ -94,36 +87,34 @@ class PimagizerBundle:
         else:
             self.has_same_sizes = False
 
-
-
-    def resize_width_height(self,width,height,force_prop=False):
+    def resize_width_height(self, width, height, force_prop=False):
         if not self.has_same_ratio and force_prop:
             print("Images haven't the same ratio,\
              so resize won't be proportional")
             return False
 
         if not self.has_same_sizes:
-            print ("Trying to resize images wich haven't the same size.\
+            print("Trying to resize images wich haven't the same size.\
                 The result might not be the expected")
 
         for image in self.images:
-            image.resize_width_height(width,height)
+            image.resize_width_height(width, height)
 
         return True
 
-    def resize_proportional_width(self,width):
+    def resize_proportional_width(self, width):
         for image in self.images:
             image.resize_proportional_width(width)
 
         return True
 
-    def resize_proportional_height(self,height):
+    def resize_proportional_height(self, height):
         for image in self.images:
             image.resize_proportional_height(height)
 
         return True
 
-    def resize_by_percent(self,percent):
+    def resize_by_percent(self, percent):
         for image in self.images:
             image.resize_by_percent(percent)
         return True
@@ -137,7 +128,7 @@ class PimagizerBundle:
 
         return True
 
-    def save_new_path(self,path):
+    def save_new_path(self, path):
         """
         Save all images on a single folder.
         path must be valid and a folder not file
@@ -145,19 +136,7 @@ class PimagizerBundle:
         path = os.path.dirname(path)
         for image in self.images:
             name = os.path.basename(image.origin_path)
-            destination = os.path.join(path,name)
+            destination = os.path.join(path, name)
             image.save_image(destination)
 
         return True
-
-
-
-
-
-
-
-#
-
-
-
-            #
