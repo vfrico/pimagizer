@@ -307,20 +307,22 @@ class Pimagizer:
 
             ###############################################
             # *** Buttons Pixels(px) and Percent(%)
+            big_format = '<span size="xx-large"><b>{}</b></span>'
 
             self.buttonPx = Gtk.ToggleButton()
-            imagePx = Gtk.Image.new_from_file("/usr/share/pimagizer/px.png")
-            self.buttonPx.add(imagePx)
+            labelPx = Gtk.Label(big_format.format("Px"))
+            self.buttonPx.add(labelPx)
             self.buttonPx.show()
-            imagePx.show()
-            # It is connected below
+            labelPx.set_use_markup(True)
+            labelPx.show()
 
+            # It is connected below
             self.buttonPr = Gtk.ToggleButton()
-            imagePr = Gtk.Image.new_from_file(
-                                        "/usr/share/pimagizer/percent.png")
-            self.buttonPr.add(imagePr)
+            labelPr = Gtk.Label(big_format.format("%"))
+            self.buttonPr.add(labelPr)
             self.buttonPr.show()
-            imagePr.show()
+            labelPr.set_use_markup(True)
+            labelPr.show()
 
             # pr => box23
             self.buttonPr.connect("toggled", self.toggledPr, self.buttonPx)
@@ -344,7 +346,7 @@ class Pimagizer:
 
             self.hb.pack_end(box2)
 
-        else:  # Else "support headerbar"
+        else:  # Else generate fake headerbar (for GTK =< 3.6)
             self.buttonPr36 = self.builder.get_object("togglepr36")
             self.buttonPx36 = self.builder.get_object("togglepx36")
 

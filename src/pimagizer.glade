@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.18.3
+
+Copyright (C) Víctor Fernández Rico <vfrico@gmail.com>
+
+This file is part of Pimagizer.
+
+Pimagizer is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pimagizer is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Pimagizer.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
 <interface>
-  <requires lib="gtk+" version="3.6"/>
+  <requires lib="gtk+" version="3.10"/>
+  <!-- interface-license-type gplv3 -->
+  <!-- interface-name Pimagizer -->
+  <!-- interface-copyright V\303\255ctor Fern\303\241ndez Rico <vfrico@gmail.com> -->
   <object class="GtkAboutDialog" id="aboutdialog">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
@@ -9,12 +31,11 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
-    <property name="has_resize_grip">False</property>
     <property name="program_name">Pimagizer</property>
     <property name="version">0.1</property>
-    <property name="copyright">(C) - 2012-2014 Víctor Fernández Rico</property>
+    <property name="copyright">(C) - 2012-2016 Víctor Fernández Rico</property>
     <property name="comments" translatable="yes">Pimagizer is a program to resize images. Right now supports PNG and JPG formats.</property>
-    <property name="website">http://www.cambiadeso.es/</property>
+    <property name="website">https://github.com/vfrico/pimagizer</property>
     <property name="authors">Víctor Fernández Rico</property>
     <property name="translator_credits">Launchpad:
 ========
@@ -27,6 +48,7 @@ Chinese (simplified): Wang Dianjin (~tuhaihe)
 Chinese (traditional): Taijuin Lee (~taijuin)
 Indonesian: Arief Setiadi Wibowo (~q-thrynx)
 Japanese: ub (~xenolith0bytetestcomgreen)
+Javanese:  Arief Setiadi Wibowo (~q-thrynx)
 Catalan: Adolfo Jayme (~fitoschido)
 
 Thanks to all! You can help the project on
@@ -136,7 +158,7 @@ Thanks to all! You can help the project on
                           <object class="GtkLabel" id="label13">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Here you can set the size of the 
+                            <property name="label" translatable="yes">Here you can set the size of the
 image preview on main window</property>
                             <property name="justify">center</property>
                           </object>
@@ -309,12 +331,12 @@ a new name as image(widthxheight).jpg?</property>
                               <object class="GtkLabel" id="label19">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="yalign">0.4699999988079071</property>
-                                <property name="label">If you &lt;b&gt;turn off&lt;/b&gt; this option, you will 
+                                <property name="label">If you &lt;b&gt;turn off&lt;/b&gt; this option, you will
 &lt;b&gt;overwrite&lt;/b&gt; all you save with Pimagizer</property>
                                 <property name="use_markup">True</property>
                                 <property name="justify">center</property>
                                 <property name="wrap">True</property>
+                                <property name="yalign">0.4699999988079071</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -422,18 +444,17 @@ a new name as image(widthxheight).jpg?</property>
                           <object class="GtkBox" id="box7">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
                             <child>
-                              <object class="GtkAspectFrame" id="aspectframe7">
+                              <object class="GtkAlignment" id="alignment1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
-                                <property name="shadow_type">none</property>
                                 <child>
-                                  <object class="GtkImage" id="lpimage">
+                                  <object class="GtkLabel" id="label14">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="stock">gtk-info</property>
-                                    <property name="icon_size">6</property>
+                                    <property name="label" translatable="yes">Developement of Pimagizer takes place on Github for code and issues and Launchpad for translations. Feel free to contribute.</property>
+                                    <property name="wrap">True</property>
                                   </object>
                                 </child>
                               </object>
@@ -444,64 +465,96 @@ a new name as image(widthxheight).jpg?</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkAlignment" id="alignment5">
+                              <object class="GtkBox" id="box8">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="top_padding">25</property>
                                 <child>
-                                  <object class="GtkBox" id="box8">
+                                  <object class="GtkAspectFrame" id="aspectframe7">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="orientation">vertical</property>
+                                    <property name="label_xalign">0</property>
+                                    <property name="shadow_type">none</property>
                                     <child>
-                                      <object class="GtkLinkButton" id="linkbutton1">
-                                        <property name="label" translatable="yes">Translate</property>
+                                      <object class="GtkImage" id="lpimage">
                                         <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="has_tooltip">True</property>
-                                        <property name="relief">none</property>
-                                        <property name="uri">https://translations.launchpad.net/pimagizer</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="stock">gtk-info</property>
+                                        <property name="icon_size">6</property>
                                       </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLinkButton" id="linkbutton2">
-                                        <property name="label" translatable="yes">Bugs</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="has_tooltip">True</property>
-                                        <property name="relief">none</property>
-                                        <property name="uri">https://bugs.launchpad.net/pimagizer</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLinkButton" id="linkbutton3">
-                                        <property name="label" translatable="yes">Questions</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="has_tooltip">True</property>
-                                        <property name="relief">none</property>
-                                        <property name="uri">https://answers.launchpad.net/pimagizer</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">2</property>
-                                      </packing>
                                     </child>
                                   </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkAlignment" id="alignment5">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkBox" id="box15">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="orientation">vertical</property>
+                                        <property name="homogeneous">True</property>
+                                        <child>
+                                          <object class="GtkLinkButton" id="linkbutton1">
+                                            <property name="label" translatable="yes">Translate on Launchpad</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">True</property>
+                                            <property name="has_tooltip">True</property>
+                                            <property name="relief">none</property>
+                                            <property name="uri">https://translations.launchpad.net/pimagizer</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLinkButton" id="linkbutton2">
+                                            <property name="label" translatable="yes">Issues on Github</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">True</property>
+                                            <property name="has_tooltip">True</property>
+                                            <property name="relief">none</property>
+                                            <property name="uri">https://bugs.launchpad.net/pimagizer</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLinkButton" id="linkbutton3">
+                                            <property name="label" translatable="yes">Source Code on Github</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">True</property>
+                                            <property name="has_tooltip">True</property>
+                                            <property name="relief">none</property>
+                                            <property name="uri">https://answers.launchpad.net/pimagizer</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">2</property>
+                                          </packing>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
                                 </child>
                               </object>
                               <packing>
@@ -523,7 +576,7 @@ a new name as image(widthxheight).jpg?</property>
                           <object class="GtkLabel" id="label7">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Launchpad</property>
+                            <property name="label" translatable="yes">Developement</property>
                             <attributes>
                               <attribute name="weight" value="bold"/>
                             </attributes>
@@ -593,7 +646,6 @@ a new name as image(widthxheight).jpg?</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <property name="icon">pimagizer.svg</property>
-    <property name="has_resize_grip">False</property>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
@@ -896,8 +948,8 @@ a new name as image(widthxheight).jpg?</property>
                               <object class="GtkLabel" id="label1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="yalign">0.49000000953674316</property>
                                 <property name="label" translatable="yes">Size:</property>
+                                <property name="yalign">0.49000000953674316</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -1150,8 +1202,8 @@ a new name as image(widthxheight).jpg?</property>
                                   <object class="GtkLabel" id="label28">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="yalign">0.49000000953674316</property>
                                     <property name="label" translatable="yes">New size:</property>
+                                    <property name="yalign">0.49000000953674316</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>

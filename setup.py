@@ -22,7 +22,8 @@
 #
 import os
 import shutil
-from distutils.core import setup
+# from distutils.core import setup
+from setuptools import setup
 from pimagizer import info
 setup(
     name="pimagizer",
@@ -42,9 +43,7 @@ setup(
                                            "src/pimagizer-main.png",
                                            "src/neucha.ttf",
                                            "src/images_zh_CN.png",
-                                           "src/images_zh_TW.png",
-                                           "src/px.png",
-                                           "src/percent.png"]),
+                                           "src/images_zh_TW.png"]),
                 ("/usr/share/applications/", ["src/pimagizer.desktop"]),
                 ("/usr/share/icons/hicolor/scalable/apps/",
                     ["src/pimagizer.svg"]),
