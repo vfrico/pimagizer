@@ -5,7 +5,7 @@
 #       This script allows install with: "sudo python ./setup.py install"
 #
 #       This file is part of Pimagizer
-#       Pimagizer Copyright 2012-2014 Víctor Fernández Rico <vfrico@gmail.com>
+#       Pimagizer Copyright 2012-2016 Víctor Fernández Rico <vfrico@gmail.com>
 #
 #       Pimagizer is free software: you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by

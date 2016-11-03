@@ -5,7 +5,7 @@
 #   Gui of pimagizer
 #
 #   This file is part of Pimagizer
-#   Pimagizer (C) 2012-2014 Víctor Fernández Rico <vfrico@gmail.com>
+#   Pimagizer (C) 2012-2016 Víctor Fernández Rico <vfrico@gmail.com>
 #
 #   Pimagizer is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3
+<!-- Generated with glade 3.18.3 
 
 Copyright (C) Víctor Fernández Rico <vfrico@gmail.com>
 
@@ -82,6 +82,8 @@ Thanks to all! You can help the project on
   <object class="GtkDialog" id="preferences">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
+    <property name="resizable">False</property>
+    <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
@@ -449,11 +451,16 @@ a new name as image(widthxheight).jpg?</property>
                               <object class="GtkAlignment" id="alignment1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="right_padding">15</property>
                                 <child>
                                   <object class="GtkLabel" id="label14">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">Developement of Pimagizer takes place on Github for code and issues and Launchpad for translations. Feel free to contribute.</property>
+                                    <property name="label" translatable="yes">Developement of Pimagizer takes place on
+Github for code and issues and Launchpad
+for translations. Feel free to contribute.</property>
+                                    <property name="use_markup">True</property>
+                                    <property name="justify">fill</property>
                                     <property name="wrap">True</property>
                                   </object>
                                 </child>
