@@ -1,3 +1,10 @@
+pimagizer (0.4.5) xenial; urgency=medium
+
+  * Changed distutils to setuptools
+  * Visual tweaks 
+
+ -- Víctor Fernández Rico <ferrvic@ideafix>  Thu, 03 Nov 2016 01:16:42 +0100
+
 pimagizer (0.4.4-1) xenial; urgency=medium
 
   * Moving from Launchpad to GitHub. Requesting build and checking all
