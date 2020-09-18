@@ -1,32 +1,40 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from gi.repository import Gtk, Gdk, GObject, GLib
-import time
 import os
 import sys
-import shutil
-import gettext
 import getopt  # for parse args
+import gi
 
-if os.path.abspath(__file__).startswith('/opt'):
-    sys.path.insert(0, '/opt/extras.ubuntu.com/pimagizer')
-    from pimagizer import gtkpimagizer
-elif os.path.abspath(__file__).startswith('/usr'):
-    sys.path.insert(0, '/usr/share/pimagizer')
-    from pimagizer import gtkpimagizer
 
-# For translations:
-APP = "pimagizer"
-DIR = "/usr/share/pimagizer/i18n"
-# Esto permite traducir los textos escritos en el .py (no en glade)
-gettext.textdomain(APP)
-gettext.bindtextdomain(APP, DIR)
-# Y las siguientes 2 lineas permiten traducir los textos del Glade
-# gtk.glade.textdomain(APP)
-# gtk.glade.bindtextdomain(APP, DIR)
-# Y con esto podemos marcar las cadenas a traducir de la forma _("cadena")
-_ = gettext.gettext
-# End translations
+def inject_env(main_file):
+    """Find where the pimagizer lib is installed."""
+    # Test if we are under a bin directory
+    script_path = os.path.realpath(main_file)
+    path, file = os.path.split(script_path)
+    print(path)
+    print(not path.startswith("/usr/local/lib/py"))
+    print(path not in ("/bin", "/usr/bin", "/usr/local/bin"))
+    if path.startswith("/opt/extras.ubuntu.com/"):
+        final_path = "/opt/extras.ubuntu.com/pimagizer"
+    elif path not in ("/bin", "/usr/bin", "/usr/local/bin") and\
+            not path.startswith("/usr/local/lib/py"):
+        final_path = os.path.join(os.path.split(path)[0], "src")
+    else:
+        final_path = "/usr/share/pimagizer"
+
+    if "PIMAGIZER_SRC" not in os.environ:
+        os.environ["PIMAGIZER_SRC"] = final_path
+
+
+# Load pimagizer library
+inject_env(__file__)
+sys.path.insert(0, os.environ["PIMAGIZER_SRC"])
+from pimagizer import gtkpimagizer
+
+
+# Load PyGObject for Gtk dialogs
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gdk, GObject, GLib
 
 
 def main(argv):
@@ -68,17 +76,17 @@ def main(argv):
         config.try_value("defaultpx", 1)
         print("Exists")
 
-    if opt == []:
+    if not opt:
         pimagizer = gtkpimagizer.Pimagizer(args)
 
 
 def usage():
-    usage = """
+    print("""
     -h --help                 Prints this
     -d --dothis               Print dothis
     -p --print (argument)     Print (argument)
-    """
-    print(usage)
+    """)
+
 
 if __name__ == "__main__":
     # [1:] => Quita el primer argumento ya que es el nombre del programa

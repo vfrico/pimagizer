@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding:UTF-8 -*-
 #
 #   File: gtkpimagizer.py
@@ -19,10 +19,9 @@
 #
 #   You should have received a copy of the GNU General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>
-
-from gi.repository import Gtk, Gio, Gdk, GdkPixbuf, GObject
 from pimagizer import info
 from pimagizer import config
+from pimagizer import utils
 from pimagizer import getimage
 from PIL import Image
 import math
@@ -32,42 +31,28 @@ import locale
 import gettext
 import time
 import threading
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gio, Gdk, GdkPixbuf, GObject
 
-# For translations:
-APP = "pimagizer"
-DIR = "/usr/share/pimagizer/i18n/"
-# Esto permite traducir los textos escritos en el .py (no en glade)
-gettext.textdomain(APP)
-gettext.bindtextdomain(APP, DIR)
-# Y con esto podemos marcar las cadenas a traducir de la forma _("cadena")
-_ = gettext.gettext
-# End translations
+_ = utils.config_translations()
 
 
-def request_preview(sp_widg, bndl):
-    print("starts")
-    print(bndl)
-
-    print(image)
-
-    print("finishes")
-    sp_widg.stop()
-    return image
-
+def get_resources_folder():
+    return utils.get_base_src()
 
 class Pimagizer:
     def __init__(self, imputfile):
 
         # Gets the GTK Builder
         self.builder = Gtk.Builder()
-        self.builder.add_from_file(
-            "/usr/share/pimagizer/pimagizer.glade")
+        self.builder.add_from_file(get_resources_folder() + "/pimagizer.glade")
 
         # Get the GTK object
         self.wdgtimg = self.builder.get_object("mainimage")
 
         # Sets the default file for image
-        self.filename = "/usr/share/pimagizer/pimagizer-main.png"
+        self.filename = get_resources_folder() + "/pimagizer-main.png"
 
         self.absheight = 0
         self.abswidth = 0

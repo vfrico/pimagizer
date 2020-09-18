@@ -25,6 +25,7 @@ from PIL import Image
 import os
 import math
 import re
+from pimagizer import utils
 import gettext
 fontpath = "/usr/share/pimagizer/neucha.ttf"
 # fontpath = "/usr/share/pimagizer/AutourOne-Regular.ttf"
@@ -32,15 +33,7 @@ fontpath = "/usr/share/pimagizer/neucha.ttf"
 # fontpath = "/usr/share/fonts/truetype/horai-umefont/ume-pmo3.ttf"
 # fontpath = "/home/victor/.fonts/salida/ofl/neucha/Neucha.ttf"
 
-# For translations:
-APP = "pimagizer"
-DIR = "/usr/share/pimagizer/i18n/"
-# Esto permite traducir los textos escritos en el .py (no en glade)
-gettext.textdomain(APP)
-gettext.bindtextdomain(APP, DIR)
-# Y con esto podemos marcar las cadenas a traducir de la forma _("cadena")
-_ = gettext.gettext
-# End translations
+_ = utils.config_translations()
 
 
 def savefromPIL(PILImage, name):

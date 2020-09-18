@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 #
 #       File: setup.py
@@ -25,6 +25,13 @@ import shutil
 # from distutils.core import setup
 from setuptools import setup
 from pimagizer import info
+
+lang_install_path = "/usr/share/pimagizer/i18n/{}/LC_MESSAGES/"
+lang_resource_path = "src/i18n/{}/LC_MESSAGES/pimagizer.mo"
+langs = ["es", "fr", "ru", "ja", "jv", "id", "ca", "zh_TW", "zh_CN"]
+localization_tuples = [(lang_install_path.format(lang),
+                        [lang_resource_path.format(lang)]) for lang in langs]
+
 setup(
     name="pimagizer",
     version=info.version,
@@ -44,34 +51,16 @@ setup(
                                            "src/neucha.ttf",
                                            "src/images_zh_CN.png",
                                            "src/images_zh_TW.png"]),
-                ("/usr/share/applications/", ["src/pimagizer.desktop"]),
+                ("/usr/share/applications/",
+                                            ["src/pimagizer.desktop"]),
                 ("/usr/share/icons/hicolor/scalable/apps/",
-                    ["src/pimagizer.svg"]),
-                ("/usr/share/pimagizer/i18n/es/LC_MESSAGES/",
-                    ["src/i18n/es/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/fr/LC_MESSAGES/",
-                    ["src/i18n/fr/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/ru/LC_MESSAGES/",
-                    ["src/i18n/ru/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/ja/LC_MESSAGES/",
-                    ["src/i18n/ja/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/jv/LC_MESSAGES/",
-                    ["src/i18n/jv/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/id/LC_MESSAGES/",
-                    ["src/i18n/id/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/ca/LC_MESSAGES/",
-                    ["src/i18n/ca/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/id/LC_MESSAGES/",
-                    ["src/i18n/id/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/zh_TW/LC_MESSAGES/",
-                    ["src/i18n/zh_TW/pimagizer.mo"]),
-                ("/usr/share/pimagizer/i18n/zh_CN/LC_MESSAGES/",
-                    ["src/i18n/zh_CN/pimagizer.mo"]),
+                                            ["src/pimagizer.svg"]),
+                *localization_tuples,
                 ("/usr/bin/", ["bin/pimagizer"])],
     packages=["pimagizer"]
     )
 try:
-    os.chmod("/usr/bin/pimagizer",  stat.S_IXUSR)
+    os.chmod("/usr/bin/pimagizer",  shutil.stat.S_IXUSR)
     print("Yes")
 except:
     print("Not installed (still) in /usr/bin/")
