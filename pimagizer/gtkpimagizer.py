@@ -41,6 +41,13 @@ _ = utils.config_translations()
 def get_resources_folder():
     return utils.get_base_src()
 
+
+def gtk_hide(widget, data):
+    print("Hide window")
+    widget.hide()
+    return True
+
+
 class Pimagizer:
     def __init__(self, imputfile):
 
@@ -63,6 +70,7 @@ class Pimagizer:
 
         # File chooser
         self.filech = self.builder.get_object("filechooserdialog1")
+        self.filech.connect('delete-event', gtk_hide)
 
         # Add filter for images
         filter_img = Gtk.FileFilter()
@@ -99,6 +107,7 @@ class Pimagizer:
 
         # Preferences Window
         self.wpref = self.builder.get_object("preferences")
+        self.wpref.connect('delete-event', gtk_hide)
         self.ntbkpref = self.builder.get_object("notebook1")
 
         # Formats box
@@ -225,6 +234,7 @@ class Pimagizer:
                 "activeprop": self.proporcionar,
                 "show-preferences": self.showpreferences,
                 "prefer-cancel": self.cancelpref,
+                "preferences_close_cb": self.cancelpref,
                 "prefer-acept": self.aceptpref,
                 "nwfile-lbl": self.pref_saving,
                 "expander_pix": self.expander_pix,
@@ -383,8 +393,11 @@ class Pimagizer:
 
     def showabout(self, widget):
         print(_("About"))
+        logo_filename = get_resources_folder() + "/pimagizer.svg"
+        logo_pixbuf = GdkPixbuf.Pixbuf.new_from_file(logo_filename)
         self.aboutwindow = self.builder.get_object("aboutdialog")
         self.aboutwindow.set_version(info.version)
+        self.aboutwindow.set_logo(logo_pixbuf)
         self.aboutwindow.set_comments(_(self.aboutwindow.get_comments()))
         self.aboutwindow.run()
         self.aboutwindow.hide()
@@ -732,16 +745,18 @@ class Pimagizer:
     def showpreferences(self, widget):
         "Shows preferences window"
         value = self.nwnamefile()
-        print(value)
+        print("newname file", value)
         self.switch_newfilename.set_active(value)
 
         # Translate window title
         self.wpref.set_title(_("Pimagizer preferences"))
         self.wpref.show()
         # config.get_value("height")
+        print("Window wpref:", self.wpref)
 
     def cancelpref(self, widget):
         self.wpref.hide()
+        return True
 
     def aceptpref(self, widget):
         "After clicking button accept on preferences window"

@@ -91,9 +91,9 @@ def usage():
 if __name__ == "__main__":
     # [1:] => Quita el primer argumento ya que es el nombre del programa
     main(sys.argv[1:])
-    GLib.threads_init()
-    Gdk.threads_init()
-    Gdk.threads_enter()
+    # GLib.threads_init()
+    # Gdk.threads_init()
+    # Gdk.threads_enter()
     Gtk.main()
-    Gdk.threads_leave()
-    GObject.threads_init()
+    # Gdk.threads_leave()
+    # GObject.threads_init()
