@@ -45,7 +45,12 @@ def savefromPIL(PILImage, name):
 def getimage_num(numero):
     """Returns the URL to an image created with a font"""
     texto = _("Images")  # Plural of images
-    texto = texto.decode("utf8")
+
+    try:
+        texto = texto.decode("utf8")
+    except AttributeError:
+        pass
+
     # Support for non cyrilic or latin characters
     lang = None, None
     for n in re.findall(u'[\u4e00-\u9fff]+', texto):
