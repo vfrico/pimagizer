@@ -22,13 +22,24 @@
 #
 import os
 import shutil
-# from distutils.core import setup
 from setuptools import setup
+from setuptools.command.install import install
 from pimagizer import info
+from babel.messages import frontend as babel
+
+class InstallWithCompile(install):
+    def run(self):
+        from babel.messages.frontend import compile_catalog
+        compiler = compile_catalog(self.distribution)
+        option_dict = self.distribution.get_option_dict('compile_catalog')
+        compiler.domain = [option_dict['domain'][1]]
+        compiler.directory = option_dict['directory'][1]
+        compiler.run()
+        super().run()
 
 lang_install_path = "/usr/share/pimagizer/i18n/{}/LC_MESSAGES/"
 lang_resource_path = "src/i18n/{}/LC_MESSAGES/pimagizer.mo"
-langs = ["es", "fr", "ru", "ja", "jv", "id", "ca", "zh_TW", "zh_CN"]
+langs = ["ar", "ca", "es", "fr", "id", "ja", "jv", "ru", "zh_TW", "zh_CN"]
 localization_tuples = [(lang_install_path.format(lang),
                         [lang_resource_path.format(lang)]) for lang in langs]
 
@@ -57,7 +68,18 @@ setup(
                                             ["src/pimagizer.svg"]),
                 *localization_tuples,
                 ("/usr/bin/", ["bin/pimagizer"])],
-    packages=["pimagizer"]
+    package_data={'': ['src/i18n/*/*/*.mo', 'src/i18n/*/*/*.po']},                
+    packages=["pimagizer"],
+    setup_requires=[
+        'babel', 'BabelGladeExtractor',
+    ],
+    cmdclass = {
+        'install': InstallWithCompile,        
+        'compile_catalog': babel.compile_catalog,
+        'extract_messages': babel.extract_messages,
+        'init_catalog': babel.init_catalog,
+        'update_catalog': babel.update_catalog
+    }               
     )
 try:
     os.chmod("/usr/bin/pimagizer",  shutil.stat.S_IXUSR)

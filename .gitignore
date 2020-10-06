@@ -44,7 +44,7 @@ coverage.xml
 *,cover
 
 # Translations
-#*.mo
+*.mo
 #*.pot
 
 # Django stuff:
@@ -57,5 +57,4 @@ docs/_build/
 target/
 
 .idea/
-src/i18n/
 venv/
