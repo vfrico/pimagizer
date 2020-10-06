@@ -2,7 +2,7 @@ Source: pimagizer
 Section: graphics
 Priority: extra
 Maintainer: Víctor Fernández Rico <vfrico@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), python3 (>=3.5), python3-setuptools (>= 20.0.0), dh-python3
+Build-Depends: debhelper (>= 8.0.0), python3 (>=3.5), python3-setuptools (>= 20.0.0), dh-python
 Standards-Version: 3.9.4
 Homepage: http://www.cambiadeso.es/proyectos/pimagizer
 
