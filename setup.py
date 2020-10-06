@@ -71,7 +71,8 @@ setup(
     package_data={'': ['src/i18n/*/*/*.mo', 'src/i18n/*/*/*.po']},                
     packages=["pimagizer"],
     setup_requires=[
-        'babel', 'BabelGladeExtractor',
+        'babel'
+        #, 'BabelGladeExtractor',
     ],
     cmdclass = {
         'install': InstallWithCompile,        
