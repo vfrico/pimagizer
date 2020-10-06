@@ -8,21 +8,22 @@
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
+export PYBUILD_NAME=pimagizer
 
 %:
-	dh $@ --with python2
+	dh $@ --with python3 --buildsystem=pybuild
 
-override_dh_auto_install:
-	dh_auto_install -- --install-lib=/usr/share/pimagizer/ --install-scripts=/usr/bin/
+# override_dh_auto_install:
+# 	dh_auto_install -- --install-lib=/usr/share/pimagizer/ --install-scripts=/usr/bin/
 
-override_dh_install:
-	dh_install
-	set -e; \
+# override_dh_install:
+# 	dh_install
+# 	set -e; \
 
-override_dh_gencontrol:
-	dh_gencontrol
-	cp $(CURDIR)/src/pimagizer.svg ../pimagizer.svg
-	dpkg-distaddfile pimagizer.svg raw-meta-data -
+# override_dh_gencontrol:
+# 	dh_gencontrol
+# 	cp $(CURDIR)/src/pimagizer.svg ../pimagizer.svg
+# 	dpkg-distaddfile pimagizer.svg raw-meta-data -
 
 #binary:
 #	echo $(PWD)
