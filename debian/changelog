@@ -1,3 +1,10 @@
+pimagizer (0.4.6) focal; urgency=medium
+
+  * Changed method to access to translations and other resources
+  * GTKPreferences dialog extracted from main script
+
+ -- Víctor Fernández Rico <vfrico@mortadelo>  Thu, 08 Oct 2020 00:54:46 +0200
+
 pimagizer (0.4.5-1) focal; urgency=medium
 
   * Changing deps in control file

@@ -18,7 +18,7 @@ def inject_env(main_file):
         final_path = "/opt/extras.ubuntu.com/pimagizer"
     elif path not in ("/bin", "/usr/bin", "/usr/local/bin") and\
             not path.startswith("/usr/local/lib/py"):
-        final_path = os.path.join(os.path.split(path)[0], "src")
+        final_path = os.path.join(path, "src")
     else:
         final_path = "/usr/share/pimagizer"
 
@@ -77,7 +77,7 @@ def main(argv):
         print("Exists")
 
     if not opt:
-        pimagizer = gtkpimagizer.Pimagizer(args)
+        pimagizer = gtkpimagizer.GtkPimagizer(args)
 
 
 def usage():

@@ -67,7 +67,7 @@ setup(
                 ("/usr/share/icons/hicolor/scalable/apps/",
                                             ["src/pimagizer.svg"]),
                 *localization_tuples,
-                ("/usr/bin/", ["bin/pimagizer"])],
+                ("/usr/bin/", ["pimagizer.py"])],
     package_data={'': ['src/i18n/*/*/*.mo', 'src/i18n/*/*/*.po']},                
     packages=["pimagizer"],
     setup_requires=[

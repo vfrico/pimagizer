@@ -23,6 +23,7 @@ from pimagizer import info
 from pimagizer import config
 from pimagizer import utils
 from pimagizer import getimage
+from pimagizer import gtkpreferences
 from PIL import Image
 import math
 import os
@@ -48,7 +49,7 @@ def gtk_hide(widget, data):
     return True
 
 
-class Pimagizer:
+class GtkPimagizer:
     def __init__(self, imputfile):
 
         # Gets the GTK Builder
@@ -67,6 +68,9 @@ class Pimagizer:
         # #********************************************
         # ###### GET EACH OBJECT ON BUILDER ###########
         # #********************************************
+
+        # Preferences Window
+        self.gtk_prefs = gtkpreferences.GtkPimagizerPreferences(self.builder)
 
         # File chooser
         self.filech = self.builder.get_object("filechooserdialog1")
@@ -104,11 +108,6 @@ class Pimagizer:
         self.btflsave = self.builder.get_object("filechooserbutton1")
         self.btflsave.set_title(_(self.btflsave.get_title()))
         self.labelsave = self.builder.get_object("savefile")
-
-        # Preferences Window
-        self.wpref = self.builder.get_object("preferences")
-        self.wpref.connect('delete-event', gtk_hide)
-        self.ntbkpref = self.builder.get_object("notebook1")
 
         # Formats box
         self.boxformats = self.builder.get_object("formatbox")
@@ -158,66 +157,11 @@ class Pimagizer:
         self.labelnwfl = self.builder.get_object("labelnwfl")
         self.f_labelnwfl()
 
-        # On Preferences window
-        # Right now, Pimagizer suports JPG and PNG formats
-        self.label10 = self.builder.get_object("label10")
-        self.label10.set_text(_(self.label10.get_text()))
-        self.label8 = self.builder.get_object("label8")  # Works with
-        self.label8.set_text(_(self.label8.get_text()))
-        self.label7 = self.builder.get_object("label7")  # Launchpad
-        self.label7.set_text(_(self.label7.get_text()))
-        self.linkbutton1 = self.builder.get_object("linkbutton1")  # Translate
-        self.linkbutton1.set_label(_(self.linkbutton1.get_label()))
-        self.linkbutton2 = self.builder.get_object("linkbutton2")  # Bugs
-        self.linkbutton2.set_label(_(self.linkbutton2.get_label()))
-        self.linkbutton3 = self.builder.get_object("linkbutton3")  # Questions
-        self.linkbutton3.set_label(_(self.linkbutton3.get_label()))
-        self.label9 = self.builder.get_object("label9")  # Size of preview
-        self.label9.set_text(_(self.label9.get_text()))
-        # Here you can set the size of the image preview on main window
-        self.label13 = self.builder.get_object("label13")
-        self.label13.set_text(_(self.label13.get_text()))
-        # Is recommended to set a value near to 300px
-        self.label12 = self.builder.get_object("label12")
-        self.label12.set_text(_(self.label12.get_text()))
-        self.label11 = self.builder.get_object("label11")  # Height
-        self.label11.set_text(_(self.label11.get_text()))
-        self.label4 = self.builder.get_object("label4")  # Information
-        self.label4.set_text(_(self.label4.get_text()))
-        self.label5 = self.builder.get_object("label5")  # Interface
-        self.label5.set_text(_(self.label5.get_text()))
-        # preferences -> (tab) saving
-        # Switch for new file name
-        self.switch_newfilename = self.builder.get_object("switch1")
-        self.label15 = self.builder.get_object("label15")  # label on tab
-        self.label15.set_text(_(self.label15.get_text()))
-        # title frame: <b>Saving options</b>
-        self.label16 = self.builder.get_object("label16")
-        self.label16.set_text(_(self.label16.get_text()))
-        self.label16.set_use_markup(True)
-        # Do you want to save the new file with a
-        self.label17 = self.builder.get_object("label17")
-        # new name as image(widthxheight).jpg?
-        self.label17.set_text(_(self.label17.get_text()))
-        # save images with new name
-        self.label18 = self.builder.get_object("label18")
-        self.label18.set_text(_(self.label18.get_text()))
-        # If you <b>turn off</b> this option, you will
-        # <b>overwrite</b> all you save with Pimagizer
-        self.label19 = self.builder.get_object("label19")
-        textohelp = _(("If you <b>turn off</b> this option, you will \n"
-                       "<b>overwrite</b> all you save with Pimagizer"))
-        self.label19.set_text(textohelp)
-        self.label19.set_use_markup(True)
-
         self.label20 = self.builder.get_object("label20")  # Width
         self.label20.set_text(_(self.label20.get_text()))
         self.label23 = self.builder.get_object("label23")  # Height
         self.label23.set_text(_(self.label23.get_text()))
 
-        # Preview size
-        self.spinprew = self.builder.get_object("spinbutton1")
-        self.spinprew.set_value(config.get_value("height"))
 
         signals = {
                 "about_activate": self.showabout,
@@ -232,11 +176,6 @@ class Pimagizer:
                 "filech-cancel": self.closefilename,
                 "chfile": self.changefile,
                 "activeprop": self.proporcionar,
-                "show-preferences": self.showpreferences,
-                "prefer-cancel": self.cancelpref,
-                "preferences_close_cb": self.cancelpref,
-                "prefer-acept": self.aceptpref,
-                "nwfile-lbl": self.pref_saving,
                 "expander_pix": self.expander_pix,
                 "expander_times": self.expander_times,
                 "times_changed": self.times_changed,
@@ -244,8 +183,8 @@ class Pimagizer:
                 "help_exp_times_": self.sethelp_exp_times_,
                 "iniciado": self.on_init,
                 "bundle-update": self.bundle_update,
-                # "newnameact": self.newname
-                }
+                **self.gtk_prefs.get_signals()
+        }
 
         self.builder.connect_signals(signals)
 
@@ -290,7 +229,7 @@ class Pimagizer:
             buttonSt.add(imageSt)
             buttonSt.show()
             imageSt.show()
-            buttonSt.connect("clicked", self.showpreferences)
+            buttonSt.connect("clicked", self.gtk_prefs.showpreferences)
 
             box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
             Gtk.StyleContext.add_class(box.get_style_context(), "linked")
@@ -742,37 +681,8 @@ class Pimagizer:
     def proporcionar(self, widget):
         None
 
-    def showpreferences(self, widget):
-        "Shows preferences window"
-        value = self.nwnamefile()
-        print("newname file", value)
-        self.switch_newfilename.set_active(value)
-
-        # Translate window title
-        self.wpref.set_title(_("Pimagizer preferences"))
-        self.wpref.show()
-        # config.get_value("height")
-        print("Window wpref:", self.wpref)
-
-    def cancelpref(self, widget):
-        self.wpref.hide()
-        return True
-
-    def aceptpref(self, widget):
-        "After clicking button accept on preferences window"
-        self.wpref.hide()
-        # Configure height
-        config.set_value("height", self.spinprew.get_value_as_int())
-        # Configure saving options
-        if self.switch_newfilename.get_active():
-            valor = 1  # New file name
-        else:
-            valor = 0  # overwrite
-        print("Setting up value:", valor)
-        config.set_value("newname", valor)
-        self.f_labelnwfl()
-
-    def nwnamefile(self):  # returns true if file name is image(WxH).png
+    @staticmethod
+    def nwnamefile():  # returns true if file name is image(WxH).png
         if config.get_value("newname") == 0:
             # print "sobrescribir"
             return False  # overwrite
@@ -788,20 +698,6 @@ class Pimagizer:
             texto = _("You are <b>overwritting</b> the image file")
         self.labelnwfl.set_text(texto)
         self.labelnwfl.set_use_markup(True)
-
-    def pref_saving(self, widget, *args):
-        # notebook.set_tab_pos
-        "Change position of tabs in notebook (set 1 as default)"
-        posini = self.ntbkpref.get_current_page()
-        movim = 1-posini
-        if movim > 0:  # + (plus)
-            for i in range(0, movim):
-                self.ntbkpref.next_page()
-        elif movim < 0:  # - (neg)
-            movim = abs(movim)
-            for i in range(0, movim):
-                self.ntbkpref.prev_page()
-        self.showpreferences(self.wpref)
 
     def folderset(self):
         """Returns value of filechooser if selected folder"""
@@ -918,5 +814,5 @@ class Pimagizer:
 
 # Ejecucion del programa
 if __name__ == '__main__':
-    pimagizer = Pimagizer([])
+    pimagizer = GtkPimagizer([])
     Gtk.main()
