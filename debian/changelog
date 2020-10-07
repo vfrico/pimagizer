@@ -1,3 +1,11 @@
+pimagizer (0.4.5-1) focal; urgency=medium
+
+  * Changing deps in control file
+  * Using setuptools to package the app
+  * Pybabel to generate .mo on install time
+
+ -- Víctor Fernández Rico <vfrico@mortadelo>  Wed, 07 Oct 2020 22:21:54 +0200
+
 pimagizer (0.4.5) xenial; urgency=medium
 
   * Changed distutils to setuptools
