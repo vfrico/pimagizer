@@ -53,7 +53,7 @@ setup(
     long_description=("Pimagizer is a program used for resize images at "
                       "the easiest way with a simple interface written "
                       "with Python and GTK+3."),
-    scripts=["bin/pimagizer"],
+    scripts=["pimagizer.py"],
     url="http://www.cambiadeso.es/proyectos/pimagizer/",
     data_files=[("/usr/share/pimagizer/", ["src/pimagizer.glade",
                                            "src/pimagizer.svg",
