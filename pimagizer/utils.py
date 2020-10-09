@@ -1,18 +1,14 @@
 import os
-
+import pkg_resources
 
 def get_base_src():
-    if "PIMAGIZER_SRC" in os.environ:
-        return os.environ["PIMAGIZER_SRC"]
-    else:
-        return "/usr/share/pimagizer"
-        
+    return pkg_resources.resource_filename(__name__, 'src/')
 
 def config_translations():
     import gettext
     # For translations:
     APP = "pimagizer"
-    DIR = os.path.join(get_base_src(), "i18n/")
+    DIR = pkg_resources.resource_filename(__name__, 'i18n/')
 
     # Esto permite traducir los textos escritos en el .py (no en glade)
     gettext.textdomain(APP)

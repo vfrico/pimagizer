@@ -1,0 +1,233 @@
+# Javanese translation for pimagizer
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the pimagizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-09 12:23+0100\n"
+"PO-Revision-Date: 2014-05-10 07:00+0000\n"
+"Last-Translator: Arief Setiadi Wibowo <q_thrynx@yahoo.com>\n"
+"Language-Team: Javanese <jv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-06-25 05:54+0000\n"
+"X-Generator: Launchpad (build 17065)\n"
+
+#: ../pimagizer/gtkpimagizer.py:119
+msgid "Image files"
+msgstr "Berkas gambar"
+
+#: ../pimagizer/gtkpimagizer.py:246
+msgid ""
+"If you <b>turn off</b> this option, you will \n"
+"<b>overwrite</b> all you save with Pimagizer"
+msgstr ""
+"Yen panjenengan <b>mateni</b> pilihan iki, panjenengan  \n"
+"bakal <b> nibani</b> sakabeh kang panjenengan simpen karo Pimagizer"
+
+#: ../pimagizer/gtkpimagizer.py:420
+msgid "Saving preferences data"
+msgstr "Nyimpen pilihan data"
+
+#: ../pimagizer/gtkpimagizer.py:427
+msgid "Closing program"
+msgstr "Nutup program"
+
+#: ../pimagizer/gtkpimagizer.py:431
+msgid "About"
+msgstr "Babagan"
+
+#: ../pimagizer/gtkpimagizer.py:439
+msgid "Close about dialog"
+msgstr "Nutup dialog babagan"
+
+#: ../pimagizer/gtkpimagizer.py:476
+#, python-format
+msgid "Bundle of %d images saved"
+msgstr "Bendhelan %d gambar kasimpen"
+
+#: ../pimagizer/gtkpimagizer.py:485
+msgid "You have not selected any file"
+msgstr "Njenengan dereng milih berkas"
+
+#: ../pimagizer/gtkpimagizer.py:527
+msgid "Image saved"
+msgstr "Gambar disimpen"
+
+#: ../pimagizer/gtkpimagizer.py:667 ../pimagizer/gtkpimagizer.py:668
+msgid "Error"
+msgstr "Kaluputan"
+
+#: ../pimagizer/gtkpimagizer.py:671
+msgid "Click here to update preview"
+msgstr "Klik wonten mriki kangge nganyari pratayang"
+
+#: ../pimagizer/gtkpimagizer.py:675
+msgid "The images you selected have different sizes"
+msgstr "Gambar ingkang njenengan pilih wonten benten ukuran"
+
+#: ../pimagizer/gtkpimagizer.py:709 ../pimagizer/gtkpimagizer.py:710
+msgid "file.png"
+msgstr "file.png"
+
+#: ../pimagizer/gtkpimagizer.py:766
+msgid "Pimagizer preferences"
+msgstr "Pilihan Pimagizer"
+
+#: ../pimagizer/gtkpimagizer.py:797
+msgid "Saving under new name"
+msgstr "Disimpen ngangge nami enggal"
+
+#: ../pimagizer/gtkpimagizer.py:799
+msgid "You are <b>overwritting</b> the image file"
+msgstr "Njenengan <b>nimpani</b> berkas gambar niki"
+
+#: ../pimagizer/gtkpimagizer.py:851
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+"Panjenengan saged milih ukuran sepira cilik  \n"
+"panjengan pingin kangge gambar kang enggal,  \n"
+"ditampilke ing persen (%)"
+
+#: ../pimagizer/gtkpimagizer.py:854 ../src/pimagizer.glade.h:28
+msgid "Help? Click"
+msgstr "Pitulungan? Klik"
+
+#: ../pimagizer/getimage.py:49
+msgid "Images"
+msgstr "Gambar"
+
+#: ../src/pimagizer.glade.h:1
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr ""
+"Pimagizer iku program kangge ngowahi ukuran gambar. Sakniki ndhukung format "
+"PNG lan JPG."
+
+#: ../src/pimagizer.glade.h:2
+msgid ""
+"Here you can set the size of the \n"
+"image preview on main window"
+msgstr ""
+"Ing kene panjenengan bisa ngatur ukuran  \n"
+"gambar pratayang ing jendela utama"
+
+#: ../src/pimagizer.glade.h:4
+msgid "Height"
+msgstr "Dhuwur"
+
+#: ../src/pimagizer.glade.h:5
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+"Disaranake diatur ukuran\n"
+"sekitar 300px"
+
+#: ../src/pimagizer.glade.h:7
+msgid "Size of preview"
+msgstr "Ukuran pratayang"
+
+#: ../src/pimagizer.glade.h:8
+msgid "Information"
+msgstr "Informasi"
+
+#: ../src/pimagizer.glade.h:9
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+"Panjenengan pingin nyimpen berkas anyar \n"
+"nganggo jeneng anyar kanthi image(widthxheight).jpg?"
+
+#: ../src/pimagizer.glade.h:11
+msgid "Save images with new name"
+msgstr "Simpen gambar kanthi jeneng anyar"
+
+#: ../src/pimagizer.glade.h:12
+msgid "Saving options"
+msgstr "Pilihan nyimpen"
+
+#: ../src/pimagizer.glade.h:13
+msgid "Saving"
+msgstr "Nyimpen"
+
+#: ../src/pimagizer.glade.h:14
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr "Pimagizer katindakake karo format PNG lan JPG."
+
+#: ../src/pimagizer.glade.h:15
+msgid "Works with"
+msgstr "Katindakake karo"
+
+#: ../src/pimagizer.glade.h:16
+msgid "Translate"
+msgstr "Njarwakake"
+
+#: ../src/pimagizer.glade.h:17
+msgid "Bugs"
+msgstr "Bugs"
+
+#: ../src/pimagizer.glade.h:18
+msgid "Questions"
+msgstr "Pitakonan"
+
+#: ../src/pimagizer.glade.h:19
+msgid "Launchpad"
+msgstr "Launchpad"
+
+#: ../src/pimagizer.glade.h:20
+msgid "Interface"
+msgstr "Antamuka"
+
+#: ../src/pimagizer.glade.h:21
+msgid "Pimagizer"
+msgstr "Pimagizer"
+
+#: ../src/pimagizer.glade.h:22
+msgid "Click on image to change"
+msgstr "klik ing gambar kangge ngubah"
+
+#: ../src/pimagizer.glade.h:23
+msgid "Size:"
+msgstr "Ukuran:"
+
+#: ../src/pimagizer.glade.h:24
+msgid "Width"
+msgstr "Lebar"
+
+#: ../src/pimagizer.glade.h:25
+msgid "Proportional"
+msgstr "Proporsional"
+
+#: ../src/pimagizer.glade.h:27
+msgid "Percentage (%)"
+msgstr "Persentase (%)"
+
+#: ../src/pimagizer.glade.h:29
+msgid "New size:"
+msgstr "Ukuran anyar:"
+
+#: ../src/pimagizer.glade.h:30
+msgid "Ratio"
+msgstr "Rasio"
+
+#: ../src/pimagizer.glade.h:31
+msgid "Save: "
+msgstr "Simpen: "
+
+#: ../src/pimagizer.glade.h:32
+msgid "Select a folder"
+msgstr "Pilih sakwijining map"
+
+#: ../src/pimagizer.glade.h:33
+msgid "Select a file"
+msgstr "Pilih sakwijining berkas"

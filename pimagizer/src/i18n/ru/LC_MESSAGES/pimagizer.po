@@ -1,0 +1,234 @@
+# Russian translation for pimagizer
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the pimagizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-09 12:23+0100\n"
+"PO-Revision-Date: 2014-02-18 16:17+0000\n"
+"Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-06-25 05:54+0000\n"
+"X-Generator: Launchpad (build 17065)\n"
+
+#: ../pimagizer/gtkpimagizer.py:119
+msgid "Image files"
+msgstr "Файлы изображений"
+
+#: ../pimagizer/gtkpimagizer.py:246
+msgid ""
+"If you <b>turn off</b> this option, you will \n"
+"<b>overwrite</b> all you save with Pimagizer"
+msgstr ""
+"Если вы <b>отключите</b> эту опцию, то будете\n"
+"<b>перезаписывать</b> всё, что сохраните в Pimagizer"
+
+#: ../pimagizer/gtkpimagizer.py:420
+msgid "Saving preferences data"
+msgstr "Сохранение параметров"
+
+#: ../pimagizer/gtkpimagizer.py:427
+msgid "Closing program"
+msgstr "Закрытие программы"
+
+#: ../pimagizer/gtkpimagizer.py:431
+msgid "About"
+msgstr "О программе"
+
+#: ../pimagizer/gtkpimagizer.py:439
+msgid "Close about dialog"
+msgstr "Закрыть диалог сведений о программе"
+
+#: ../pimagizer/gtkpimagizer.py:476
+#, python-format
+msgid "Bundle of %d images saved"
+msgstr "Группа из %d изображений сохранена"
+
+#: ../pimagizer/gtkpimagizer.py:485
+msgid "You have not selected any file"
+msgstr "Вы не выбрали никакого файла"
+
+#: ../pimagizer/gtkpimagizer.py:527
+msgid "Image saved"
+msgstr "Изображение сохранено"
+
+#: ../pimagizer/gtkpimagizer.py:667 ../pimagizer/gtkpimagizer.py:668
+msgid "Error"
+msgstr "Ошибка"
+
+#: ../pimagizer/gtkpimagizer.py:671
+msgid "Click here to update preview"
+msgstr "Щёлкните здесь, чтобы обновить предпросмотр"
+
+#: ../pimagizer/gtkpimagizer.py:675
+msgid "The images you selected have different sizes"
+msgstr "Выбранные изображения разного размера"
+
+#: ../pimagizer/gtkpimagizer.py:709 ../pimagizer/gtkpimagizer.py:710
+msgid "file.png"
+msgstr "файл.png"
+
+#: ../pimagizer/gtkpimagizer.py:766
+msgid "Pimagizer preferences"
+msgstr "Параметры Pimagizer"
+
+#: ../pimagizer/gtkpimagizer.py:797
+msgid "Saving under new name"
+msgstr "Сохранение под новым именем"
+
+#: ../pimagizer/gtkpimagizer.py:799
+msgid "You are <b>overwritting</b> the image file"
+msgstr "Вы <b>перезаписываете</b> файл изображения"
+
+#: ../pimagizer/gtkpimagizer.py:851
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+"Здесь вы можете указать насколько\\n\n"
+"новое изображение (-я) будет меньше\\n\n"
+"исходного в процентах (%)"
+
+#: ../pimagizer/gtkpimagizer.py:854 ../src/pimagizer.glade.h:28
+msgid "Help? Click"
+msgstr "Помочь? Нажми"
+
+#: ../pimagizer/getimage.py:49
+msgid "Images"
+msgstr "Изображения"
+
+#: ../src/pimagizer.glade.h:1
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr ""
+"Pimagizer — программа позволяющая изменять размер изображений. В настоящее "
+"время поддерживает форматы PNG и JPG."
+
+#: ../src/pimagizer.glade.h:2
+msgid ""
+"Here you can set the size of the \n"
+"image preview on main window"
+msgstr ""
+"Здесь вы можете назначить размер \n"
+"предпросматриваемого изображения\n"
+"в основном окне"
+
+#: ../src/pimagizer.glade.h:4
+msgid "Height"
+msgstr "Высота"
+
+#: ../src/pimagizer.glade.h:5
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+"Рекомендуется установить значение,\n"
+"близкое к 300 пикселям"
+
+#: ../src/pimagizer.glade.h:7
+msgid "Size of preview"
+msgstr "Размер предпросмотра"
+
+#: ../src/pimagizer.glade.h:8
+msgid "Information"
+msgstr "Сведения"
+
+#: ../src/pimagizer.glade.h:9
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+"Вы хотите сохранить новый файл с именем\n"
+"вида «изображение(ширинаХвысота).jpg»?"
+
+#: ../src/pimagizer.glade.h:11
+msgid "Save images with new name"
+msgstr "Сохранять изображения с новым именем"
+
+#: ../src/pimagizer.glade.h:12
+msgid "Saving options"
+msgstr "Сохранение настроек"
+
+#: ../src/pimagizer.glade.h:13
+msgid "Saving"
+msgstr "Сохранение"
+
+#: ../src/pimagizer.glade.h:14
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr "Pimagizer совместим с форматами PNG и JPG."
+
+#: ../src/pimagizer.glade.h:15
+msgid "Works with"
+msgstr "Работает с"
+
+#: ../src/pimagizer.glade.h:16
+msgid "Translate"
+msgstr "Перевести"
+
+#: ../src/pimagizer.glade.h:17
+msgid "Bugs"
+msgstr "Ошибки"
+
+#: ../src/pimagizer.glade.h:18
+msgid "Questions"
+msgstr "Вопросы"
+
+#: ../src/pimagizer.glade.h:19
+msgid "Launchpad"
+msgstr "Launchpad"
+
+#: ../src/pimagizer.glade.h:20
+msgid "Interface"
+msgstr "Интерфейс"
+
+#: ../src/pimagizer.glade.h:21
+msgid "Pimagizer"
+msgstr "Pimagizer"
+
+#: ../src/pimagizer.glade.h:22
+msgid "Click on image to change"
+msgstr "Нажмите на изображение для замены"
+
+#: ../src/pimagizer.glade.h:23
+msgid "Size:"
+msgstr "Размер:"
+
+#: ../src/pimagizer.glade.h:24
+msgid "Width"
+msgstr "Ширина"
+
+#: ../src/pimagizer.glade.h:25
+msgid "Proportional"
+msgstr "Пропорционально"
+
+#: ../src/pimagizer.glade.h:27
+msgid "Percentage (%)"
+msgstr "Процент (%)"
+
+#: ../src/pimagizer.glade.h:29
+msgid "New size:"
+msgstr "Новый размер:"
+
+#: ../src/pimagizer.glade.h:30
+msgid "Ratio"
+msgstr "Соотношение сторон"
+
+#: ../src/pimagizer.glade.h:31
+msgid "Save: "
+msgstr "Сохранить: "
+
+#: ../src/pimagizer.glade.h:32
+msgid "Select a folder"
+msgstr "Выберите папку"
+
+#: ../src/pimagizer.glade.h:33
+msgid "Select a file"
+msgstr "Выберите файл"

@@ -27,21 +27,39 @@ from setuptools.command.install import install
 from pimagizer import info
 from babel.messages import frontend as babel
 
+
 class InstallWithCompile(install):
+    def copy_po_files(self):
+        langs = ["ar", "ca", "es", "fr", "id", "ja", "jv", "ru", "zh_TW", "zh_CN"]
+        source_path = "i18n/"
+        dest_path = "pimagizer/i18n/{}/LC_MESSAGES/pimagizer.po"
+
+        for lang in langs:
+            orig_po = source_path + f"{lang}.po"
+            dest_po = dest_path.format(lang)
+            os.makedirs(os.path.split(dest_po)[0], exist_ok=True)
+            print(f"Copia {orig_po} a {dest_po}")
+            shutil.copy(orig_po, dest_po)
+
     def run(self):
+        print("RUN INSTALL")
+        self.copy_po_files()
         from babel.messages.frontend import compile_catalog
         compiler = compile_catalog(self.distribution)
         option_dict = self.distribution.get_option_dict('compile_catalog')
+        print(option_dict)
         compiler.domain = [option_dict['domain'][1]]
         compiler.directory = option_dict['directory'][1]
         compiler.run()
         super().run()
 
+
+
 lang_install_path = "/usr/share/pimagizer/i18n/{}/LC_MESSAGES/"
 lang_resource_path = "src/i18n/{}/LC_MESSAGES/pimagizer.mo"
-langs = ["ar", "ca", "es", "fr", "id", "ja", "jv", "ru", "zh_TW", "zh_CN"]
-localization_tuples = [(lang_install_path.format(lang),
-                        [lang_resource_path.format(lang)]) for lang in langs]
+#
+# localization_tuples = [(lang_install_path.format(lang),
+#                         [lang_resource_path.format(lang)]) for lang in langs]
 
 setup(
     name="pimagizer",
@@ -53,37 +71,30 @@ setup(
     long_description=("Pimagizer is a program used for resize images at "
                       "the easiest way with a simple interface written "
                       "with Python and GTK+3."),
-    scripts=["pimagizer.py"],
     url="http://www.cambiadeso.es/proyectos/pimagizer/",
-    data_files=[("/usr/share/pimagizer/", ["src/pimagizer.glade",
-                                           "src/pimagizer.svg",
-                                           "src/bundle-background.png",
-                                           "src/pimagizer-main.png",
-                                           "src/neucha.ttf",
-                                           "src/images_zh_CN.png",
-                                           "src/images_zh_TW.png"]),
-                ("/usr/share/applications/",
-                                            ["src/pimagizer.desktop"]),
-                ("/usr/share/icons/hicolor/scalable/apps/",
-                                            ["src/pimagizer.svg"]),
-                *localization_tuples,
-                ("/usr/bin/", ["pimagizer.py"])],
-    package_data={'': ['src/i18n/*/*/*.mo', 'src/i18n/*/*/*.po']},                
+    package_data={
+        'pimagizer': [
+            'src/*.*',
+            'i18n/*/LC_MESSAGES/*.mo'
+        ]
+    },
+    # package_dir={'': 'src/'},
+    include_package_data=True,
     packages=["pimagizer"],
     setup_requires=[
         'babel'
         #, 'BabelGladeExtractor',
     ],
-    cmdclass = {
-        'install': InstallWithCompile,        
+    cmdclass={
+        'install': InstallWithCompile,
         'compile_catalog': babel.compile_catalog,
         'extract_messages': babel.extract_messages,
         'init_catalog': babel.init_catalog,
         'update_catalog': babel.update_catalog
-    }               
+    },
+    entry_points={
+        "console_scripts": [
+            "pimagizer = pimagizer.main:main",
+        ]
+    }
     )
-try:
-    os.chmod("/usr/bin/pimagizer",  shutil.stat.S_IXUSR)
-    print("Yes")
-except:
-    print("Not installed (still) in /usr/bin/")
