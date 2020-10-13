@@ -1,0 +1,239 @@
+# Translations template for pimagizer.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the pimagizer project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer 0.4.7\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-10-14 00:31+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: pimagizer/getimage.py:47
+msgid "Images"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:81
+msgid "Image files"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:323
+msgid "Saving preferences data"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:330
+msgid "Closing program"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:334
+msgid "About"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:345
+msgid "Close about dialog"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:386
+#, python-format
+msgid "Saved %d images"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:397
+msgid "You have not selected any file"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:443
+msgid "Image saved"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:589 pimagizer/gtkpimagizer.py:590
+msgid "Error"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:593
+msgid "Click here to update preview"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:597
+msgid "The images you selected have different sizes"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:633 pimagizer/gtkpimagizer.py:634
+msgid "file.png"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:696
+msgid "Saving under new name"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:698
+msgid "You are <b>overwritting</b> the image file"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:742
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+
+#: pimagizer/gtkpimagizer.py:747 pimagizer/src/pimagizer.glade:652
+msgid "Help? Click"
+msgstr ""
+
+#: pimagizer/gtkpreferences.py:90
+msgid "Pimagizer preferences"
+msgstr ""
+
+#. Name
+#: pimagizer/src/pimagizer.desktop:3 pimagizer/src/pimagizer.glade:106
+#: pimagizer/src/pimagizer.glade:183
+msgid "Pimagizer"
+msgstr ""
+
+#. Icon
+#: pimagizer/src/pimagizer.desktop:4
+msgid "pimagizer"
+msgstr ""
+
+#. Comment
+#: pimagizer/src/pimagizer.desktop:5
+msgid "Resize images using Python"
+msgstr ""
+
+#. Comment[es]
+#: pimagizer/src/pimagizer.desktop:6
+msgid "Redimensione imágenes usando python"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:37
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:354
+msgid "Click on image to change"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:415
+msgid "Size:"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:467
+msgid "Width"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:524 pimagizer/src/pimagizer.glade:989
+msgid "Height"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:570
+msgid "Proportional"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:608
+msgid "Percentage (%)"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:669
+msgid "New size:"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:717
+msgid "Ratio"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:817
+msgid "Save: "
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:831 pimagizer/src/pimagizer.glade:1506
+msgid "Select a folder"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:972
+msgid ""
+"Here you can set the size of the\n"
+"image preview on main window"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1025
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1044
+msgid "Size of preview"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1059
+msgid "Information"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1093
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1111
+msgid "Save images with new name"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1169
+msgid "Saving options"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1184
+msgid "Saving"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1212
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1227
+msgid "Works with"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1269
+msgid ""
+"Developement of Pimagizer takes place on\n"
+"Github for code and issues and Launchpad\n"
+"for translations. Feel free to contribute."
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1319
+msgid "Translate on Launchpad"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1335
+msgid "Issues on Github"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1351
+msgid "Source Code on Github"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1394
+msgid "Developement"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1418
+msgid "Interface"
+msgstr ""
+
+#: pimagizer/src/pimagizer.glade:1442
+msgid "Select a file"
+msgstr ""
+
