@@ -30,7 +30,7 @@ from babel.messages import frontend as babel
 
 class InstallWithCompile(install):
     def copy_po_files(self):
-        langs = ["ar", "ca", "es", "fr", "id", "ja", "jv", "ru", "zh_TW", "zh_CN"]
+        langs = ["ar", "ca", "es", "fr", "id", "ja", "jv", "ru", "sl", "zh_TW", "zh_CN"]
         source_path = "i18n/"
         dest_path = "pimagizer/i18n/{}/LC_MESSAGES/pimagizer.po"
 
