@@ -6,6 +6,8 @@ Change easily the size to your images
 
 If you want to contribute with translations, you have to edit `.po` files corresponding with your language in this [folder](src/i18n-template). To edit them, it is advisable to use an editor like [POEdit](https://github.com/vslavik/poedit) or Poeditor.
 
+Additionally, you still can use Launchpad for translations in [pimagizer](https://translations.launchpad.net/pimagizer) project.
+
 ## Installation
 
 The installation can be fulfilled through executing standard installation routine on `setup.py` script:
