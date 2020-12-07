@@ -20,7 +20,7 @@
 #       along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #This file is intended to be on tools folder
 cd ..
-python setup.py sdist
+python3 setup.py sdist
 a=$(ls dist/ -1)
 name=${a:0:9}
 v=${a: -12}

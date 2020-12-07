@@ -1,12 +1,18 @@
 from pimagizer import utils
 from pimagizer import config
 from pimagizer import gtkpimagizer
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gio, Gdk, GdkPixbuf, GObject
 
 _ = utils.config_translations()
 
 
 class GtkPimagizerPreferences():
-    def __init__(self, glade_builder):
+    def __init__(self):
+        glade_builder = Gtk.Builder()
+        glade_ui_file = utils.get_base_src() + "ui/preferences.glade"
+        glade_builder.add_from_file(glade_ui_file)
 
         # Preferences Window
         self.wpref = glade_builder.get_object("preferences")
@@ -76,6 +82,8 @@ class GtkPimagizerPreferences():
             "nwfile-lbl": self.pref_saving,
             "prefer-acept": self.aceptpref
         }
+        glade_builder.connect_signals(self.prefs_signals)
+
 
     def get_signals(self):
         return self.prefs_signals

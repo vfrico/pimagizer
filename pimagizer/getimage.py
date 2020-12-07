@@ -5,7 +5,7 @@
 #   Gets an image when handling a bundle of them
 #
 #   This file is part of Pimagizer
-#   Pimagizer (C) 2012-2014 Víctor Fernández Rico <vfrico@gmail.com>
+#   Pimagizer (C) 2012-2020 Víctor Fernández Rico <vfrico@gmail.com>
 #
 #   Pimagizer is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published
@@ -27,7 +27,7 @@ import math
 import re
 from pimagizer import utils
 import gettext
-fontpath = "/usr/share/pimagizer/neucha.ttf"
+fontpath = os.path.join(utils.get_base_src(), "neucha.ttf")
 # fontpath = "/usr/share/pimagizer/AutourOne-Regular.ttf"
 # fontpath = "/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf"
 # fontpath = "/usr/share/fonts/truetype/horai-umefont/ume-pmo3.ttf"
@@ -54,18 +54,19 @@ def getimage_num(numero):
     # Support for non cyrilic or latin characters
     lang = None, None
     for n in re.findall(u'[\u4e00-\u9fff]+', texto):
-        lang = ("zh_CN", "/usr/share/pimagizer/images_zh_CN.png")
-        lang = ("zh_TW", "/usr/share/pimagizer/images_zh_TW.png")
+        lang = ("zh_CN", os.path.join(utils.get_base_src(), "images_zh_CN.png"))
+        lang = ("zh_TW", os.path.join(utils.get_base_src(), "images_zh_TW.png"))
     try:
         import ImageFont
         import ImageDraw
     except:
         from PIL import ImageFont, ImageDraw
     # Cargo la fuente
+    print(fontpath)
     fuente = ImageFont.truetype(fontpath, 60)
 
     # Creo la imagen
-    imagen = Image.open("/usr/share/pimagizer/bundle-background.png")
+    imagen = Image.open(os.path.join(utils.get_base_src(), "bundle-background.png"))
     (width, height) = imagen.size
 
     # Inicio la imagen para poder pintar

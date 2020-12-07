@@ -1436,6 +1436,11 @@ for translations. Feel free to contribute.</property>
       <action-widget response="0">button9</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkSizeGroup">
+    <widgets>
+      <widget name="preferences"/>
+    </widgets>
+  </object>
   <object class="GtkFileChooserDialog" id="filechooserdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>

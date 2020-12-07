@@ -5,7 +5,7 @@
 #   Gui of pimagizer
 #
 #   This file is part of Pimagizer
-#   Pimagizer (C) 2012-2016 Víctor Fernández Rico <vfrico@gmail.com>
+#   Pimagizer (C) 2012-2020 Víctor Fernández Rico <vfrico@gmail.com>
 #
 #   Pimagizer is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published
@@ -24,6 +24,8 @@ from pimagizer import config
 from pimagizer import utils
 from pimagizer import getimage
 from pimagizer import gtkpreferences
+from pimagizer import gtkfilechooser
+from pimagizer import gtkabout
 from PIL import Image
 import math
 import os
@@ -54,7 +56,7 @@ class GtkPimagizer:
 
         # Gets the GTK Builder
         self.builder = Gtk.Builder()
-        self.builder.add_from_file(get_resources_folder() + "/pimagizer.glade")
+        self.builder.add_from_file(get_resources_folder() + "ui/main.glade")
 
         # Get the GTK object
         self.wdgtimg = self.builder.get_object("mainimage")
@@ -70,18 +72,13 @@ class GtkPimagizer:
         # #********************************************
 
         # Preferences Window
-        self.gtk_prefs = gtkpreferences.GtkPimagizerPreferences(self.builder)
+        self.gtk_prefs = gtkpreferences.GtkPimagizerPreferences()
 
         # File chooser
-        self.filech = self.builder.get_object("filechooserdialog1")
-        self.filech.connect('delete-event', gtk_hide)
+        self.filech = gtkfilechooser.GtkFileChooser(file_selected_cb=self._callback_filechoosen)
 
-        # Add filter for images
-        filter_img = Gtk.FileFilter()
-        filter_img.set_name(_("Image files"))
-        filter_img.add_mime_type("image/png")
-        filter_img.add_mime_type("image/jpeg")
-        self.filech.add_filter(filter_img)
+        # About window
+        self.gtkAbout = gtkabout.GtkAbout()
 
         # Init Width box
         self.inputwidth = self.builder.get_object("width")
@@ -100,8 +97,6 @@ class GtkPimagizer:
         # Setup labelresol (global and percentage)
         self.lblresol = self.builder.get_object("lblresol")
         self.lblresol1 = self.builder.get_object("lblresol1")
-        # self.lblresol.set_text(str(width)+"x"+str(height))
-        # self.lblresol1.set_text(str(width)+"x"+str(height))
         self.lblst = self.builder.get_object("labelst")
 
         # Save folder
@@ -113,77 +108,45 @@ class GtkPimagizer:
         self.boxformats = self.builder.get_object("formatbox")
 
         # Expanders
-        self.boxPx = self.builder.get_object("box6")
-        self.boxPr = self.builder.get_object("box23")
+        self.boxPx = self.builder.get_object("box_width_height")
+        self.boxPr = self.builder.get_object("box_percent")
 
         self.height1 = self.builder.get_object("height1")
         self.height1.set_value(100)
 
-        #  "Size in pixels"
-        # self.label2 = self.builder.get_object("label2")
-        # self.label2.set_text(_(self.label2.get_text()))
-        # "Percentage resizing"
-        # self.label22 = self.builder.get_object("label22")
-        # self.label22.set_text(_(self.label22.get_text()))
-        # "Percentage (%)"
-        self.label24 = self.builder.get_object("label24")
-        self.label24.set_text(_(self.label24.get_text()))
-        # "Percentage (%)"
-        # self.label25 = self.builder.get_object("label25")
-        # self.label25.set_text(_(self.label25.get_text()))
-        # "Percentage (%)"
-        self.label26 = self.builder.get_object("label26")
-        self.label26.set_label(_(self.label26.get_label()))
+        self.gtk_translate_label("label_percent")
+        self.gtk_translate_label("label_help")
+        self.gtk_translate_label("label3")
+        self.gtk_translate_label("label_size")
+        self.gtk_translate_label("label_width")
+        self.gtk_translate_label("label_height")
 
         #  Translates
         # "Click on image to change"
-        self.label6 = self.builder.get_object("label6")
-        # if self.tipo == 1:
-        #    self.label6.set_text(_("Click here to update preview"))
-        # elif self.tipo == 2:
-        #    self.label6.set_text(_("The images you selected
-        #                            have different sizes"))
-        # else:
-        #    self.label6.set_text(_(self.label6.get_text()))
-        # if self.hidelabel and not (self.tipo == 1 or self.tipo == 2):
-        #    self.label6.hide() #Hides the label "Click on image to change"
-        self.label3 = self.builder.get_object("label3")  # "Save:"
-        self.label3.set_text(_(self.label3.get_text()))
-        self.label1 = self.builder.get_object("label1")  # "Size:"
-        self.label1.set_text(_(self.label1.get_text()))
-        # self.label25 = self.builder.get_object("label25") # "Size:"
-        # self.label25.set_text(_(self.label25.get_text()))
-        # Is actived nw file or not?
+        self.label_under_preview = self.builder.get_object("label_under_preview")
         self.labelnwfl = self.builder.get_object("labelnwfl")
         self.f_labelnwfl()
 
-        self.label20 = self.builder.get_object("label20")  # Width
-        self.label20.set_text(_(self.label20.get_text()))
-        self.label23 = self.builder.get_object("label23")  # Height
-        self.label23.set_text(_(self.label23.get_text()))
-
-
         signals = {
-                "about_activate": self.showabout,
-                "main_close": self.cerrarapp,
-                "resize-accept": self.resizeimg,
-                "File-update": self.updateimg,
-                "main-update": self.updateimg,
-                "img-click": self.updateimg,
-                "height-cursor": self.heightcursor,
-                "width-cursor": self.widthcursor,
-                "filech-accept": self.setfilename,
-                "filech-cancel": self.closefilename,
-                "chfile": self.changefile,
-                "activeprop": self.proporcionar,
-                "expander_pix": self.expander_pix,
-                "expander_times": self.expander_times,
-                "times_changed": self.times_changed,
-                "help_exp_times": self.sethelp_exp_times,
-                "help_exp_times_": self.sethelp_exp_times_,
-                "iniciado": self.on_init,
-                "bundle-update": self.bundle_update,
-                **self.gtk_prefs.get_signals()
+            "about_activate": self.showabout,
+            "main_close": self.cerrarapp,
+            "resize-accept": self.resizeimg,
+            "File-update": self.updateimg,
+            "main-update": self.updateimg,
+            "img-click": self.updateimg,
+            "height-cursor": self.heightcursor,
+            "width-cursor": self.widthcursor,
+            "chfile": self.changefile,
+            "activeprop": self.proporcionar,
+            # "expander_pix": self.expander_pix,
+            # "expander_times": self.expander_times,
+            "times_changed": self.times_changed,
+            "help_exp_times": self.sethelp_exp_times,
+            "help_exp_times_": self.sethelp_exp_times_,
+            "iniciado": self.on_init,
+            "bundle-update": self.bundle_update,
+            "nwfile-lbl": self._unhandled_singal,
+            "show-preferences": self._unhandled_singal_show_prefs,
         }
 
         self.builder.connect_signals(signals)
@@ -191,159 +154,148 @@ class GtkPimagizer:
         # Get main window
         self.window1 = self.builder.get_object("window1")
 
-        # Test if system can generate HeaderBar
-        # (only available on Gnome/GTK+ 3.10 +)
-        try:
-            hb = Gtk.HeaderBar()
-            self.g310support = True
-            self.buttonbox1 = self.builder.get_object("buttonbox1")
-            self.buttonbox1.hide()
-        except:
-            self.g310support = False
-
-        # ###########################################
-        # ··············  HeaderBar  ················
-        # *******************************************
-        if self.g310support:
-
-            # Add a HeaderBar
-            self.hb = Gtk.HeaderBar()
-            self.hb.props.show_close_button = True
-            self.hb.props.title = "Pimagizer"
-            self.window1.set_titlebar(self.hb)
-
-            ############################################
-            # *** Buttons About and Preferences
-
-            buttonAb = Gtk.Button()
-            iconAb = Gio.ThemedIcon(name="gtk-about")
-            imageAb = Gtk.Image.new_from_gicon(iconAb, Gtk.IconSize.BUTTON)
-            buttonAb.add(imageAb)
-            buttonAb.show()
-            imageAb.show()
-            buttonAb.connect("clicked", self.showabout)
-
-            buttonSt = Gtk.Button()
-            iconSt = Gio.ThemedIcon(name="gtk-preferences")
-            imageSt = Gtk.Image.new_from_gicon(iconSt, Gtk.IconSize.BUTTON)
-            buttonSt.add(imageSt)
-            buttonSt.show()
-            imageSt.show()
-            buttonSt.connect("clicked", self.gtk_prefs.showpreferences)
-
-            box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-            Gtk.StyleContext.add_class(box.get_style_context(), "linked")
-            box.add(buttonAb)
-            box.add(buttonSt)
-            box.show()
-
-            self.hb.pack_start(box)
-
-            ###############################################
-            # *** Buttons Pixels(px) and Percent(%)
-            big_format = '<span size="xx-large"><b>{}</b></span>'
-
-            self.buttonPx = Gtk.ToggleButton()
-            labelPx = Gtk.Label(big_format.format("Px"))
-            self.buttonPx.add(labelPx)
-            self.buttonPx.show()
-            labelPx.set_use_markup(True)
-            labelPx.show()
-
-            # It is connected below
-            self.buttonPr = Gtk.ToggleButton()
-            labelPr = Gtk.Label(big_format.format("%"))
-            self.buttonPr.add(labelPr)
-            self.buttonPr.show()
-            labelPr.set_use_markup(True)
-            labelPr.show()
-
-            # pr => box23
-            self.buttonPr.connect("toggled", self.toggledPr, self.buttonPx)
-            # px => box6
-            self.buttonPx.connect("toggled", self.toggledPx, self.buttonPr)
-
-            if config.get_value("defaultpx") == 1:
-                # Si es verdad, esconder el Pr
-                self.boxPr.hide()
-                self.buttonPx.set_active(True)
-            else:
-                # Si no es verdad, esconder el Px
-                self.boxPx.hide()
-                self.buttonPr.set_active(True)
-
-            box2 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-            Gtk.StyleContext.add_class(box2.get_style_context(), "linked")
-            box2.add(self.buttonPx)
-            box2.add(self.buttonPr)
-            box2.show()
-
-            self.hb.pack_end(box2)
-
-        else:  # Else generate fake headerbar (for GTK =< 3.6)
-            self.buttonPr36 = self.builder.get_object("togglepr36")
-            self.buttonPx36 = self.builder.get_object("togglepx36")
-
-            if config.get_value("defaultpx") == 1:
-                # Si es verdad, esconder el Pr
-                self.boxPr.hide()
-                self.buttonPx36.set_active(True)
-            else:
-                # Si no es verdad, esconder el Px
-                self.boxPx.hide()
-                self.buttonPr36.set_active(True)
-
-            self.buttonPr36.connect("toggled", self.toggledPr, self.buttonPx36)
-            self.buttonPx36.connect("toggled", self.toggledPx, self.buttonPr36)
-
-            # Linking boxes to get more beautiful experience
-            self.box3 = self.builder.get_object("box3")
-            Gtk.StyleContext.add_class(self.box3.get_style_context(), "linked")
-            self.box4 = self.builder.get_object("box4")
-            Gtk.StyleContext.add_class(self.box4.get_style_context(), "linked")
-        ###
-        # **************************************************
-        # ··············END HeaderBar·······················
-        ####################################################
+        # Add a HeaderBar
+        self.hb = self.gtk_generate_headerbar()
+        self.window1.set_titlebar(self.hb)
 
         # Show Window and HeaderBar
-        if self.g310support:
-            self.hb.show()
+        self.hb.show()
         self.window1.show()
 
-        if imputfile == []:
+        if not imputfile:
             imputfile = [self.filename]
         print("imputfile+ "+str(imputfile))
         self.updateUI(imputfile)
 
-        if(self.window1):
+        if self.window1:
             self.window1.connect("destroy", self.cerrarapp)
+
+    def _unhandled_singal(self, inst, widget, *args, **kwargs):
+        print("Se ha producido una señal que no se está gestionando de la "
+              "forma adecuada. La ha producido el widget {} "
+              "con la lista de argumentos: {}".format(widget, str(args)))
+        print(inst)
+        print(kwargs)
+
+    def gtk_generate_headerbar(self):
+        hb = Gtk.HeaderBar()
+        hb.props.show_close_button = True
+        hb.props.title = "Pimagizer"
+
+        ############################################
+        # *** Buttons About and Preferences
+        button_ab = Gtk.Button()
+        icon_ab = Gio.ThemedIcon(name="gtk-about")
+        image_ab = Gtk.Image.new_from_gicon(icon_ab, Gtk.IconSize.BUTTON)
+        button_ab.add(image_ab)
+        button_ab.show()
+        image_ab.show()
+        button_ab.connect("clicked", self.showabout)
+
+        button_st = Gtk.Button()
+        icon_st = Gio.ThemedIcon(name="gtk-preferences")
+        image_st = Gtk.Image.new_from_gicon(icon_st, Gtk.IconSize.BUTTON)
+        button_st.add(image_st)
+        button_st.show()
+        image_st.show()
+        button_st.connect("clicked", self.gtk_prefs.showpreferences)
+
+        box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        Gtk.StyleContext.add_class(box.get_style_context(), "linked")
+        box.add(button_ab)
+        box.add(button_st)
+        box.show()
+
+        hb.pack_start(box)
+
+        ###############################################
+        # *** Buttons Pixels(px) and Percent(%)
+        big_format = '<span size="xx-large"><b>{}</b></span>'
+
+        self.button_px = Gtk.ToggleButton()
+        label_px = Gtk.Label(big_format.format("Px"))
+        self.button_px.add(label_px)
+        self.button_px.show()
+        label_px.set_use_markup(True)
+        label_px.show()
+
+        # It is connected below
+        self.button_pr = Gtk.ToggleButton()
+        label_pr = Gtk.Label(big_format.format("%"))
+        self.button_pr.add(label_pr)
+        self.button_pr.show()
+        label_pr.set_use_markup(True)
+        label_pr.show()
+
+        def toggled_px(widget, widget_com):
+            # Hide box of Pr (23) and show box of Px(6)
+            if widget.get_active():
+                self.boxPr.hide()
+                if widget_com.get_active():
+                    widget_com.set_active(False)
+                self.boxPx.show()
+
+        def toggled_pr(widget, widget_com):
+            if widget.get_active():
+                self.boxPx.hide()
+                if widget_com.get_active():
+                    widget_com.set_active(False)
+                self.boxPr.show()
+
+        # pr => box23
+        self.button_pr.connect("toggled", toggled_pr, self.button_px)
+        # px => box6
+        self.button_px.connect("toggled", toggled_px, self.button_pr)
+
+        if config.get_value("defaultpx") == 1:
+            # Si es verdad, esconder el Pr
+            self.boxPr.hide()
+            self.button_px.set_active(True)
+        else:
+            # Si no es verdad, esconder el Px
+            self.boxPx.hide()
+            self.button_pr.set_active(True)
+
+        box2 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        Gtk.StyleContext.add_class(box2.get_style_context(), "linked")
+        box2.add(self.button_px)
+        box2.add(self.button_pr)
+        box2.show()
+
+        hb.pack_end(box2)
+        return hb
+
+    def _unhandled_singal_show_prefs(self, inst, widget, *args, **kwargs):
+        print("PREFSSe ha producido una señal que no se está gestionando de la "
+              "forma adecuada. La ha producido el widget {} "
+              "con la lista de argumentos: {}".format(widget, str(args)))
+        print(inst)
+        print(kwargs)
+
+    def gtk_translate_label(self, glade_name):
+        """Translates a label present in glade file"""
+        label_widget = self.builder.get_object(glade_name)
+        label_widget.set_text(_(label_widget.get_text()))
 
     def cerrarapp(self, widget):
         print(_("Saving preferences data"))
-        if self.g310support:
-            if self.buttonPx.get_active():
-                config.set_value("defaultpx", 1)
-            else:
-                config.set_value("defaultpx", 0)
+        if self.button_px.get_active():
+            config.set_value("defaultpx", 1)
+        else:
+            config.set_value("defaultpx", 0)
 
         print(_("Closing program"))
         Gtk.main_quit()
 
     def showabout(self, widget):
         print(_("About"))
-        logo_filename = get_resources_folder() + "/pimagizer.svg"
-        logo_pixbuf = GdkPixbuf.Pixbuf.new_from_file(logo_filename)
-        self.aboutwindow = self.builder.get_object("aboutdialog")
-        self.aboutwindow.set_version(info.version)
-        self.aboutwindow.set_logo(logo_pixbuf)
-        self.aboutwindow.set_comments(_(self.aboutwindow.get_comments()))
-        self.aboutwindow.run()
-        self.aboutwindow.hide()
+        self.gtkAbout.open()
 
-    def closeabout(self, widget):
-        print(_("Close about dialog"))
-        self.aboutwindow.hide()
+    def _callback_filechoosen(self, file):
+        self.filename = file
+        self.listbundle = file
+        # How many images are selected? Do different things in each case
+        self.updateUI(self.filename)
 
     def resizeimg(self, widget):
         """Saves the image"""
@@ -393,7 +345,7 @@ class GtkPimagizer:
             # para reconocer el formato de la imagen
             imgfile, ext0 = os.path.splitext(self.filename)
             # If press save button when there's no text on entry
-            if (self.labelsave.get_text() == ""):
+            if self.labelsave.get_text() == "":
                 errorMSG = _("You have not selected any file")
                 print(errorMSG)
                 self.lblst.set_text(errorMSG)
@@ -418,10 +370,10 @@ class GtkPimagizer:
             # se usa la del archivo de origen
             if ext == "":
                 ext = ext0
-            if(ext == ".jpg" or ext == ".JPG" or
+            if (ext == ".jpg" or ext == ".JPG" or
                ext == ".jpeg" or ext == ".JPEG"):
                 ext2 = "JPEG"
-            elif(ext == ".png" or ext == ".PNG"):
+            elif ext == ".png" or ext == ".PNG":
                 ext2 = "PNG"
             else:
                 print("No format supported, trying JPEG")
@@ -464,7 +416,7 @@ class GtkPimagizer:
         filename = self.imgfile.get_filename()
         self.filename = filename
         self.wdgtimg.set_from_pixbuf(self.resizing(filename))
-        if (self.isimgbox):
+        if self.isimgbox:
             self.wdgtimg.hide()
             self.isimgbox = False
             self.imgfile.show()
@@ -474,14 +426,10 @@ class GtkPimagizer:
             self.isimgbox = True
 
     def changefile(self, widget, *args):
-        """Run dialog"""
-        print("Changefile")
-        self.filech.set_title(_(self.filech.get_title()))
         self.filech.show()
-        self.filech.run()
 
     def update_sizeUI(self, wid, hei):
-        "Updates the resolution on all items on UI and do them global"
+        """Updates the resolution on all items on UI and do them global"""
 
         self.absheight = hei
         self.abswidth = wid
@@ -492,19 +440,14 @@ class GtkPimagizer:
             self.ratio = 1
         print(self.ratio)
 
-        if self.g310support:
-            if self.buttonPr.get_active():
-                percent = self.height1.get_value_as_int() * 0.01
-            else:
-                percent = 1
+        if self.button_pr.get_active():
+            percent = self.height1.get_value_as_int() * 0.01
         else:
-            if self.buttonPr36.get_active():
-                percent = self.height1.get_value_as_int() * 0.01
-            else:
-                percent = 1
+            percent = 1
         print(percent)
 
         (wid, hei) = (int(wid * percent), int(hei * percent))
+        print(wid, hei)
         self.lblresol.set_text(str(wid)+"x"+str(hei))  # Sets text on top label
         self.inputheight.set_value(hei)  # set height on imput
         self.inputwidth.set_value(wid)  # set width on input
@@ -514,10 +457,7 @@ class GtkPimagizer:
         """Makes all needed actions to get ui updated"""
         self.filename = files
         print(self.filename)
-        if self.g310support:
-            self.buttonPx.set_sensitive(True)
-        else:
-            self.buttonPx36.set_sensitive(True)
+        self.button_px.set_sensitive(True)
 
         self.builder.get_object("box11").show()
 
@@ -535,6 +475,7 @@ class GtkPimagizer:
 
             # Get width and height for selected image
             imagen = Image.open(self.filename)
+            print("La imagen tiene size: ", imagen.size)
             (width, height) = imagen.size  # Gets width and height
             self.update_sizeUI(width, height)
 
@@ -577,10 +518,7 @@ class GtkPimagizer:
                 # Expand expander 1 -> Only modify size in percent
                 # exp_times= self.builder.get_object("expander1")
                 #                        .set_expanded(True)
-                if self.g310support:
-                    self.buttonPx.set_sensitive(False)
-                else:
-                    self.buttonPx36.set_sensitive(False)
+                self.button_px.set_sensitive(False)
 
                 # Init some helper vars
                 self.several = True
@@ -590,33 +528,22 @@ class GtkPimagizer:
             self.lblresol.set_text(_("Error"))
 
         if self.tipo == 1:
-            self.label6.set_text(_("Click here to update preview"))
-            self.label6.show()
+            self.label_under_preview.set_text(_("Click here to update preview"))
+            self.label_under_preview.show()
             self.labelsave.hide()
         elif self.tipo == 2:
-            self.label6.set_text(_("The images you selected "
+            self.label_under_preview.set_text(_("The images you selected "
                                    "have different sizes"))
-            self.label6.show()
+            self.label_under_preview.show()
             self.labelsave.hide()
             self.builder.get_object("box11").hide()
         elif self.tipo == 0:
             self.builder.get_object("box11").show()
-            self.label6.hide()
+            self.label_under_preview.hide()
             self.labelsave.show()
         else:
-            self.label6.set_text(_(self.label6.get_text()))
-            self.label6.show()
-
-    def setfilename(self, widget):
-        "After selecting a file on Filechooserbutton"
-        self.filech.hide()
-        self.filename = self.filech.get_filenames()
-        self.listbundle = self.filename
-        # How many images are selected? Do different things in each case
-        self.updateUI(self.filename)
-
-#        if self.hidelabel and not (self.tipo == 1 or self.tipo == 2):
-#            self.label6.hide() #Hides the label "Click on image to change"
+            self.label_under_preview.set_text(_(self.label_under_preview.get_text()))
+            self.label_under_preview.show()
 
     def setlabelsave(self):
         "Changes imput text (on the bottom) for change file"
@@ -632,9 +559,6 @@ class GtkPimagizer:
         else:
             self.labelsave.set_placeholder_text(_("file.png"))
             self.labelsave.set_text(_("file.png"))
-
-    def closefilename(self, widget):
-        self.filech.hide()
 
     def calcheight(self):
         width = self.inputwidth.get_value_as_int()
@@ -657,26 +581,24 @@ class GtkPimagizer:
         return int(width)
 
     def widthcursor(self, widget, *args):
-        if(self.checkprop.get_active()):
-            # print "New width"
+        if self.checkprop.get_active():
+            print("New width")
             self.inputheight.set_value(self.calcheight())
         nwdth = float(self.inputwidth.get_value_as_int())
         nhght = float(self.inputheight.get_value_as_int())
         self.lblresol.set_text(str(int(nwdth))+"x"+str(int(nhght)))
         self.setlabelsave()
-        self.ad = False
+        # self.ad = False
 
-        # None
     def heightcursor(self, widget, *args):
-        if(self.checkprop.get_active()):
-            # print "New height"
+        if self.checkprop.get_active():
+            print("New height")
             self.inputwidth.set_value(self.calcwidth())
         nwdth = float(self.inputwidth.get_value_as_int())
         nhght = float(self.inputheight.get_value_as_int())
         self.lblresol.set_text(str(int(nwdth))+"x"+str(int(nhght)))
         self.setlabelsave()
-        self.da = False
-        # None
+        # self.da = False
 
     def proporcionar(self, widget):
         None
@@ -711,17 +633,17 @@ class GtkPimagizer:
     #####
     # When open one expand, the other gets closed
     #####
-    def expander_pix(self, widget):
-        """Esta función hace que se encoja el expand de pixeles,
-        cuando se expande el de "times"""
-        if self.exp_times.get_expanded():
-            self.exp_times.set_expanded(False)
-
-    def expander_times(self, widget):
-        """Esta función hace que se encoja el expand de times,
-        cuando se expande el de pixeles"""
-        if self.exp_pix.get_expanded():
-            self.exp_pix.set_expanded(False)
+    # def expander_pix(self, widget):
+    #     """Esta función hace que se encoja el expand de pixeles,
+    #     cuando se expande el de "times"""
+    #     if self.exp_times.get_expanded():
+    #         self.exp_times.set_expanded(False)
+    #
+    # def expander_times(self, widget):
+    #     """Esta función hace que se encoja el expand de times,
+    #     cuando se expande el de pixeles"""
+    #     if self.exp_pix.get_expanded():
+    #         self.exp_pix.set_expanded(False)
     ####
 
     def times_changed(self, widget):
@@ -758,7 +680,7 @@ class GtkPimagizer:
 
         # Uses callback arg for update the image
         self.wdgtimg.set_from_pixbuf(self.resizing(img_retrieved))
-        self.label6.hide()
+        self.label_under_preview.hide()
 
     def bundle_update(self, widget, widget2):
         """Update the preview when a bundle is loaded"""
@@ -796,20 +718,7 @@ class GtkPimagizer:
         th = threading.Thread(target=runthread)
         th.start()
 
-    def toggledPx(self, widget, widgetCom):
-        # Hide box of Pr (23) and show box of Px(6)
-        if widget.get_active():
-            self.boxPr.hide()
-            if widgetCom.get_active():
-                widgetCom.set_active(False)
-            self.boxPx.show()
 
-    def toggledPr(self, widget, widgetCom):
-        if widget.get_active():
-            self.boxPx.hide()
-            if widgetCom.get_active():
-                widgetCom.set_active(False)
-            self.boxPr.show()
 
 
 # Ejecucion del programa

@@ -18,5 +18,5 @@
 #       along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 intltool-extract --type="gettext/glade" ../src/pimagizer.glade
-#mv -v ../pimagizer.glade.h pimagizer.glade.h
+#mv -v ../about.glade.h about.glade.h
 xgettext -kN_ -o ../src/i18n-template/pimagizer.pot ../bin/pimagizer  ../pimagizer/gtkpimagizer.py ../pimagizer/getimage.py ../src/pimagizer.glade.h --from-code=UTF-8 --language=Python --package-name=pimagizer --package-version=0.4.2 --msgid-bugs-address=vfrico@gmail.com
