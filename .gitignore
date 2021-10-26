@@ -58,3 +58,6 @@ target/
 
 .idea/
 venv/
+
+# Temp files
+\#*#
