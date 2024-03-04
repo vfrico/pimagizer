@@ -1,0 +1,254 @@
+# Translations template for pimagizer.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the pimagizer project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pimagizer 0.4.7\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-10-14 00:31+0200\n"
+"PO-Revision-Date: 2024-03-04 17:19+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: pimagizer/getimage.py:47
+msgid "Images"
+msgstr "Afbeeldingen"
+
+#: pimagizer/gtkpimagizer.py:81
+msgid "Image files"
+msgstr "Afbeeldingsbestanden"
+
+#: pimagizer/gtkpimagizer.py:323
+msgid "Saving preferences data"
+msgstr "Bezig met opslaan van voorkeuren…"
+
+#: pimagizer/gtkpimagizer.py:330
+msgid "Closing program"
+msgstr "Bezig met afsluiten…"
+
+#: pimagizer/gtkpimagizer.py:334
+msgid "About"
+msgstr "Over"
+
+#: pimagizer/gtkpimagizer.py:345
+msgid "Close about dialog"
+msgstr "Venster ‘Over’ sluiten"
+
+#: pimagizer/gtkpimagizer.py:386
+#, python-format
+msgid "Saved %d images"
+msgstr "Er zijn %d afbeeldingen opgeslagen"
+
+#: pimagizer/gtkpimagizer.py:397
+msgid "You have not selected any file"
+msgstr "U heeft nog geen bestand gekozen"
+
+#: pimagizer/gtkpimagizer.py:443
+msgid "Image saved"
+msgstr "De afbeelding is opgeslagen"
+
+#: pimagizer/gtkpimagizer.py:589 pimagizer/gtkpimagizer.py:590
+msgid "Error"
+msgstr "Foutmelding"
+
+#: pimagizer/gtkpimagizer.py:593
+msgid "Click here to update preview"
+msgstr "Klik hier om de voorvertoning bij te werken"
+
+#: pimagizer/gtkpimagizer.py:597
+msgid "The images you selected have different sizes"
+msgstr "De gekozen afbeeldingen hebben verschillende afmetingen"
+
+#: pimagizer/gtkpimagizer.py:633 pimagizer/gtkpimagizer.py:634
+msgid "file.png"
+msgstr "bestand.png"
+
+#: pimagizer/gtkpimagizer.py:696
+msgid "Saving under new name"
+msgstr "Bezig met opslaan onder nieuwe naam…"
+
+#: pimagizer/gtkpimagizer.py:698
+msgid "You are <b>overwritting</b> the image file"
+msgstr "U bent bezig om het bestand te <b>overschrijven</b>"
+
+#: pimagizer/gtkpimagizer.py:742
+msgid ""
+"You can select here how small \n"
+"you want your new image(s), \n"
+"expressed in percent (%)"
+msgstr ""
+"U kunt hier kiezen hoe klein \n"
+"de nieuwe afbeelding(en) moet(en)\n"
+"zijn (in procenten - %)"
+
+#: pimagizer/gtkpimagizer.py:747 pimagizer/src/pimagizer.glade:652
+msgid "Help? Click"
+msgstr "Hulp nodig? Klik"
+
+#: pimagizer/gtkpreferences.py:90
+msgid "Pimagizer preferences"
+msgstr "Pimagizer-voorkeuren"
+
+#. Name
+#: pimagizer/src/pimagizer.desktop:3 pimagizer/src/pimagizer.glade:106
+#: pimagizer/src/pimagizer.glade:183
+msgid "Pimagizer"
+msgstr "Pimagizer"
+
+#. Icon
+#: pimagizer/src/pimagizer.desktop:4
+msgid "pimagizer"
+msgstr "pimagizer"
+
+#. Comment
+#: pimagizer/src/pimagizer.desktop:5
+msgid "Resize images using Python"
+msgstr "Afmetingen aanpassen met behulp van Python"
+
+#. Comment[es]
+#: pimagizer/src/pimagizer.desktop:6
+msgid "Redimensione imágenes usando python"
+msgstr "Redimensione imágenes usando python"
+
+#: pimagizer/src/pimagizer.glade:37
+msgid ""
+"Pimagizer is a program to resize images. Right now supports PNG and JPG "
+"formats."
+msgstr ""
+"Pimagizer is een toepassing voor het aanpassen van de afmetingen van "
+"afbeeldingen. Momenteel worden png- en jpg-formaten ondersteund."
+
+#: pimagizer/src/pimagizer.glade:354
+msgid "Click on image to change"
+msgstr "Klik op de afbeelding om iets te wĳzigen"
+
+#: pimagizer/src/pimagizer.glade:415
+msgid "Size:"
+msgstr "Afmetingen:"
+
+#: pimagizer/src/pimagizer.glade:467
+msgid "Width"
+msgstr "Breedte"
+
+#: pimagizer/src/pimagizer.glade:524 pimagizer/src/pimagizer.glade:989
+msgid "Height"
+msgstr "Hoogte"
+
+#: pimagizer/src/pimagizer.glade:570
+msgid "Proportional"
+msgstr "In verhouding"
+
+#: pimagizer/src/pimagizer.glade:608
+msgid "Percentage (%)"
+msgstr "Percentage (%)"
+
+#: pimagizer/src/pimagizer.glade:669
+msgid "New size:"
+msgstr "Nieuwe afmetingen:"
+
+#: pimagizer/src/pimagizer.glade:717
+msgid "Ratio"
+msgstr "Verhouding"
+
+#: pimagizer/src/pimagizer.glade:817
+msgid "Save: "
+msgstr "Opslaan: "
+
+#: pimagizer/src/pimagizer.glade:831 pimagizer/src/pimagizer.glade:1506
+msgid "Select a folder"
+msgstr "Kies een map"
+
+#: pimagizer/src/pimagizer.glade:972
+msgid ""
+"Here you can set the size of the\n"
+"image preview on main window"
+msgstr ""
+"Hier kunt u de afmetingen van de\n"
+"voorvertoning instellen"
+
+#: pimagizer/src/pimagizer.glade:1025
+msgid ""
+"Is recommended to set a value\n"
+"near to 300px"
+msgstr ""
+"Aanbevolen: een waarde van om\n"
+"en nabij 300px"
+
+#: pimagizer/src/pimagizer.glade:1044
+msgid "Size of preview"
+msgstr "Voorvertoningsgrootte"
+
+#: pimagizer/src/pimagizer.glade:1059
+msgid "Information"
+msgstr "Informatie"
+
+#: pimagizer/src/pimagizer.glade:1093
+msgid ""
+"Do you want to save the new file with\n"
+"a new name as image(widthxheight).jpg?"
+msgstr ""
+"Wilt u het nieuwe bestand opslaan onder een\n"
+"nieuwe naam als ‘afbeelding(breedtexhoogte).jpg?"
+
+#: pimagizer/src/pimagizer.glade:1111
+msgid "Save images with new name"
+msgstr "Afbeeldingen opslaan onder nieuwe naam"
+
+#: pimagizer/src/pimagizer.glade:1169
+msgid "Saving options"
+msgstr "Opslagopties"
+
+#: pimagizer/src/pimagizer.glade:1184
+msgid "Saving"
+msgstr "Bezig met opslaan…"
+
+#: pimagizer/src/pimagizer.glade:1212
+msgid "Pimagizer works with PNG and JPG formats."
+msgstr "Pimagizer werkt met png- en jpg-afbeeldingen."
+
+#: pimagizer/src/pimagizer.glade:1227
+msgid "Works with"
+msgstr "Werkt met"
+
+#: pimagizer/src/pimagizer.glade:1269
+msgid ""
+"Developement of Pimagizer takes place on\n"
+"Github for code and issues and Launchpad\n"
+"for translations. Feel free to contribute."
+msgstr ""
+"De ontwilkkeling van Pimagizer vindt plaats\n"
+"op GitHub; de vertaling ervan op Launchpad.\n"
+"Voel u vrij om bij te dragen."
+
+#: pimagizer/src/pimagizer.glade:1319
+msgid "Translate on Launchpad"
+msgstr "Vertalen op Launchpad"
+
+#: pimagizer/src/pimagizer.glade:1335
+msgid "Issues on Github"
+msgstr "Problemen op GitHub"
+
+#: pimagizer/src/pimagizer.glade:1351
+msgid "Source Code on Github"
+msgstr "Broncode op GitHub"
+
+#: pimagizer/src/pimagizer.glade:1394
+msgid "Developement"
+msgstr "Ontwikkeling"
+
+#: pimagizer/src/pimagizer.glade:1418
+msgid "Interface"
+msgstr "Vormgeving"
+
+#: pimagizer/src/pimagizer.glade:1442
+msgid "Select a file"
+msgstr "Kies een bestand"
